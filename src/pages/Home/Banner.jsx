@@ -3,7 +3,7 @@ import img1 from "../../assets/images/planeImg/booking-flight.jpg";
 
 const Banner = () => {
   return (
-    <div className="container-fluid hero h-[478px] p-5 md:p-16 top-[20px] md:top-[221px] ">
+    <div className="container-fluid hero h-auto p-7 md:p-24">
       <div className="hero-content flex flex-col md:flex-row-reverse items-center justify-center">
         <img
           src={img1}
