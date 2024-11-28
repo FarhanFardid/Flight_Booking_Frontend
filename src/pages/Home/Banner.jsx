@@ -10,7 +10,7 @@ const Banner = () => {
           className="w-[570px] h-[478px] rounded-xl shadow-2xl flex-1 bg-[#F2EBDA] pt-5"
         />
         <div className="flex-1">
-          <h1 className="text-2xl md:text-5xl mt-3 md:mt-0 ms-4 md:ms-0 font-bold w-full h-[40px] md:w-[585px] md:h-[130px] ">
+          <h1 className="text-2xl md:text-5xl mt-3 md:mt-0 ms-2 md:ms-0 font-bold w-full h-[40px] md:w-[585px] md:h-[130px] ">
             Your Favorite Flight Booking Partner
           </h1>
           <p className="text-sm  md:text-lg md:w-[528px] md:h-auto font-normal pb-2 md:pb-4 mx-auto md:mx-0">
