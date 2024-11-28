@@ -23,7 +23,7 @@ const NavLinks = () => {
         </Navbar.Link>
         <Navbar.Link
           as={Link}
-          to="/"
+          to="/about"
           className="font-bold text-blue-500 text-xs md:text-base"
         >
           About Us
