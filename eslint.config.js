@@ -35,6 +35,10 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'no-undef': [
+    'error',
+    { typeof: false }, // Prevents errors for require/import
+  ],
     },
   },
 ]
