@@ -3,7 +3,7 @@ import Title from "../../components/Title";
 const NewsLetter = () => {
   return (
     <>
-      <div className="py-8 md:py-12">
+      <div className="pt-8 md:pt-24">
         <Title
           main="Stay Updated with QuickFly"
           sub="Subscribe to our newsletter for the latest travel deals, tips, and updates."
