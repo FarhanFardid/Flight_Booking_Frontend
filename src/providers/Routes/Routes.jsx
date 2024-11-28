@@ -5,6 +5,7 @@ import AboutUs from "../../pages/About/AboutUs";
 import ContactUs from "../../pages/Contact/ContactUs";
 
 const router = createBrowserRouter([
+  // Basic Routes without Authentication
   {
     path: "/",
     element: <Main></Main>,
@@ -15,12 +16,12 @@ const router = createBrowserRouter([
       },
       {
         path: "about",
-        element:<AboutUs></AboutUs>,
+        element: <AboutUs></AboutUs>,
       },
       {
-        path:'contact',
-        element:<ContactUs></ContactUs>,
-      }
+        path: "contact",
+        element: <ContactUs></ContactUs>,
+      },
     ],
   },
 ]);

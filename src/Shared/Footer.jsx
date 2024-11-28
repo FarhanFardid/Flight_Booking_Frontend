@@ -124,11 +124,10 @@ const Footer = () => {
             <span className="text-sm font-bold">
               © 2024 <a href="">QuickFly™</a>. All Rights Reserved.
             </span>
-            <div className="flex mt-3 md:mt-4 justify-center  space-x-5 rtl:space-x-reverse">
+            <div className="flex mt-3 md:mt-4 justify-center  space-x-5 rtl:space-x-reverse md:text-sm text-xs">
               <a href="#" className="text-white">
                 Privacy & Policy
               </a>
-
               <a href="#" className="text-white">
                 Terms & Conditions
               </a>
