@@ -9,7 +9,7 @@ const NewsLetter = () => {
           sub="Subscribe to our newsletter for the latest travel deals, tips, and updates."
         ></Title>
       </div>{" "}
-      <div className="flex flex-col md:flex-row justify-between items-center p-2 md:p-6  rounded-md shadow-md  bg-cover bg-no-repeat bg-center w-full h-auto md:h-[302px] py-5 md:mt-[50px] bg-gradient-to-r from-purple-700 via-indigo-700 to-slate-600">
+      <div className="flex flex-col md:flex-row justify-between items-center p-2 md:p-6  rounded-md shadow-md  bg-cover bg-no-repeat bg-center w-full h-auto md:h-[302px] py-5 md:mt-[50px] bg-gradient-to-r from-purple-900 via-indigo-600 to-slate-500">
         <div className="flex flex-col mb-4 md:mb-0 md:mr-4 text-white">
           <h2 className="text-2xl md:text-4xl font-bold mb-2 text-center md:text-left">
             Subscribe Our Newsletter
