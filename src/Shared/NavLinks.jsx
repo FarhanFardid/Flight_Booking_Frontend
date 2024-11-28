@@ -30,7 +30,7 @@ const NavLinks = () => {
         </Navbar.Link>
         <Navbar.Link
           as={Link}
-          to="/"
+          to="/contact"
           className="font-bold text-blue-500 text-xs md:text-base"
         >
           Contact Us
