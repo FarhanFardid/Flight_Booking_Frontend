@@ -11,7 +11,6 @@ const ContactUs = () => {
           sub="We’re here to help! Reach out and let’s make your journey smoother"
         ></Title>
       </div>
-
       <BasicInfo></BasicInfo>
       <ContactForm></ContactForm>
     </>
