@@ -15,7 +15,6 @@ const Register = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
   const onSubmit = (data) => {
     const userName = data.userName;
     const email = data.email;
