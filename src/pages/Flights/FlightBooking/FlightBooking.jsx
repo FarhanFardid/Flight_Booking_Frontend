@@ -35,7 +35,7 @@ const FlightBooking = () => {
     // console.log(data);
     const bookingInfo = {
       userId,
-      userEmail,
+      email,
       flightId,
       flightNo,
       seats,
@@ -147,7 +147,6 @@ const FlightBooking = () => {
                     )}
                   </div>
                 </label>
-
                 <div className="flex justify-center mt-2">
                   <button
                     type="submit"
