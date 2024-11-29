@@ -137,6 +137,7 @@ const FlightBooking = () => {
                       className="w-[20rem] md:w-[28rem] mb-2 text-black rounded-lg"
                       type="number"
                       name="seats"
+                      min={1}
                       placeholder="Enter No. of seats."
                       {...register("seats", { required: true })}
                     />

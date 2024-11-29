@@ -12,7 +12,7 @@ import { NavLink, Outlet } from "react-router";
 import Footer from "../Shared/Footer";
 import { FaAddressBook } from "react-icons/fa6";
 const Dashboard = () => {
-  const isAdmin = false;
+  const isAdmin = true;
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
