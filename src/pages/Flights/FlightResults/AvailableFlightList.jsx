@@ -5,7 +5,7 @@ const AvailableFlightList = ({ flight, index }) => {
   const { flight_id, flight_number, airline, origin, destination, date } =
     flight;
   return (
-    <tr>
+    <tr className="font-semibold">
       <th>
         <label>{index + 1}.</label>
       </th>
