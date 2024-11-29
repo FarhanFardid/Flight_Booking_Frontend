@@ -63,7 +63,7 @@ const AdminBookingManagement = () => {
     >
       <div className="mt-6 md:mt-12 bg-white bg-opacity-10 p-2 md:p-8 rounded-md">
         <Title
-          main="Manage Flight Bookings"
+          main="Flight Bookings Management"
           sub="Efficiently Oversee and Organize All Flight Reservations in Your System"
         ></Title>
       </div>

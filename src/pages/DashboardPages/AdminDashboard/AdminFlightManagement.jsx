@@ -68,7 +68,7 @@ const AdminFlightManagement = () => {
     >
       <div className="mt-6 md:mt-12 bg-white bg-opacity-10 p-2 md:p-8 rounded-md">
         <Title
-          main="Flight Management Dashboard"
+          main="Flights Management Dashboard"
           sub="Streamline and Effortlessly Manage Flights"
         ></Title>
       </div>
