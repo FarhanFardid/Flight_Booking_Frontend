@@ -1,5 +1,4 @@
 
-
 const FlightResults = () => {
     return (
         <div>
