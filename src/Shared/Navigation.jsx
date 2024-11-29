@@ -67,7 +67,7 @@ const Navigation = () => {
         </div>
       ) : (
         <button className="bg-black text-white btn-md rounded-lg font-bold  hover:text-slate-200 hover:bg-slate-800 h-8 w-14 py-1 px-3 md:h-12 md:w-24 md:py-3 md:px-6 text-xs md:text-base mr-5 hover:scale-105 text-center">
-          <Link to="/login"> Login</Link>
+          <Link to="/register"> Login</Link>
         </button>
       )}
     </Navbar>
