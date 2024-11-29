@@ -70,7 +70,7 @@ const Dashboard = () => {
                     className="font-medium flex justify-start items-center mt-5"
                   >
                     <FaAddressBook className="w-6 h-6 text-blue-600 me-5" />
-                    Flight Booking Management
+                    Flight Bookings Management
                   </NavLink>
                 </li>
               </>

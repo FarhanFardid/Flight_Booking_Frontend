@@ -85,7 +85,8 @@ const AdminBookingManagement = () => {
                 <th>Number of. Seats</th>
                 <th>Total Price (USD)</th>
                 <th>Status</th>
-                <th>Update</th>
+                <th>Confirm</th>
+                <th>Deny</th>
                 <th>Delete</th>
               </tr>
             </thead>

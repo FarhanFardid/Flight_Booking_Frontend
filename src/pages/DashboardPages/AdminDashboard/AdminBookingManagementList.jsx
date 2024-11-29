@@ -1,5 +1,6 @@
-import { FaArrowCircleUp } from "react-icons/fa";
-import { MdDelete } from "react-icons/md";
+import { FaArrowCircleUp, FaThumbsDown, FaThumbsUp } from "react-icons/fa";
+import { MdCancel, MdDelete } from "react-icons/md";
+import { TbFlagCancel } from "react-icons/tb";
 import { Link } from "react-router";
 
 const AdminBookingManagementList = ({ booking, index }) => {
@@ -29,13 +30,24 @@ const AdminBookingManagementList = ({ booking, index }) => {
       <td>{price}</td>
       <td>{status}</td>
       <td>
-        <Link to="/dashboard/adminBookingUpdate">
+        <Link to="/dashboard">
           <button
             onClick={() => console.log(_id)}
             className="btn-xs btn-circle bg-blue-600 text-white hover:bg-blue-900"
           >
             {" "}
-            <FaArrowCircleUp className="w-4 h-4 mx-auto font-bold" />
+            <FaThumbsUp  className="w-4 h-4 mx-auto font-bold" />
+          </button>
+        </Link>
+      </td>
+      <td>
+        <Link to="/dashboard">
+          <button
+            onClick={() => console.log(_id)}
+            className="btn-xs btn-circle bg-red-500 text-white hover:bg-orange-900"
+          >
+            {" "}
+            <MdCancel  className="w-4 h-4 mx-auto font-bold" />
           </button>
         </Link>
       </td>

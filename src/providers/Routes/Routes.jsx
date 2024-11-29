@@ -16,7 +16,6 @@ import UserBooking from "../../pages/DashboardPages/UserDashboard/UserBooking";
 import AdminBookingManagement from "../../pages/DashboardPages/AdminDashboard/AdminBookingManagement";
 import AdminAddFlight from "../../pages/DashboardPages/AdminDashboard/AdminAddFlight";
 import AdminFlightUpdate from "../../pages/DashboardPages/AdminDashboard/AdminFlightUpdate";
-import AdminBookingUpdate from "../../pages/DashboardPages/AdminDashboard/AdminBookingUpdate";
 import AdminFlightManagement from "../../pages/DashboardPages/AdminDashboard/AdminFlightManagement";
 
 const router = createBrowserRouter([
@@ -87,10 +86,6 @@ const router = createBrowserRouter([
       {
         path: "adminAddFlight",
         element: <AdminAddFlight></AdminAddFlight>,
-      },
-      {
-        path: "adminBookingUpdate",
-        element: <AdminBookingUpdate></AdminBookingUpdate>,
       },
       {
         path: "adminFlightManagement",
