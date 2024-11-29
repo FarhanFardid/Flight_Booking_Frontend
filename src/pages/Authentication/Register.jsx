@@ -47,7 +47,7 @@ const Register = () => {
         <div className="md:w-[50%] w-full md:my-14 mx-auto flex justify-center">
           <div className="bg-black bg-opacity-50 border-solid rounded-2xl w-[22rem] md:w-[34rem] p-6 mx-auto my-8 md:p-8 md:m-8 ">
             <h1 className="text-center font-semibold text-blue-600 text-xl md:text-3xl">
-              User Registration Form
+              User Sign Up Form
             </h1>
             <div className="flex items-center justify-center mt-8  text-white">
               <form
@@ -160,7 +160,7 @@ const Register = () => {
                     type="submit"
                     className="bg-black text-white btn-md rounded-lg font-bold  hover:text-blue hover:bg-slate-700 w-20 px-3 py-2 md:w-28 md:py-3 md:px-6 text-xs md:text-base mt-5 hover:scale-110"
                   >
-                    Register
+                    Sign Up
                   </button>
                 </div>
                 <div className="flex justify-center items-center gap-4 mt-2">
@@ -170,7 +170,7 @@ const Register = () => {
                       to="/login"
                       className="text-blue-600 font-bold text-xs md:text-lg ml-2 hover:underline"
                     >
-                      Login
+                      Sign In
                     </Link>
                   </div>
                 </div>
