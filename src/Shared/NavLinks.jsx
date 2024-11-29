@@ -60,7 +60,7 @@ const NavLinks = () => {
           isAdmin ? (
             <Navbar.Link
               as={Link}
-              to="/"
+              to="/dashboard/adminAddFlight"
               className="font-bold text-blue-500 text-xs md:text-base"
             >
               Admin Dashboard
@@ -68,7 +68,7 @@ const NavLinks = () => {
           ) : (
             <Navbar.Link
               as={Link}
-              to="/"
+              to="/dashboard/userProfile"
               className="font-bold text-blue-500 text-xs md:text-base"
             >
               User Dashboard

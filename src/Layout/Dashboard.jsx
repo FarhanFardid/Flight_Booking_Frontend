@@ -1,7 +1,10 @@
-import { FaUser, FaUserEdit } from "react-icons/fa";
+import { FaEdit, FaHome, FaUser, FaUserEdit } from "react-icons/fa";
 import Navigation from "../Shared/Navigation";
 import logo from "../assets/images/logo/logo1.jpeg";
 import { MdBook, MdCall, MdInfo } from "react-icons/md";
+import { useState } from "react";
+import { NavLink, Outlet } from "react-router";
+import Footer from "../Shared/Footer";
 const Dashboard = () => {
   const isAdmin = false;
   const [isOpen, setIsOpen] = useState(false);
