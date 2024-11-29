@@ -5,8 +5,9 @@ import AboutUs from "../../pages/About/AboutUs";
 import ContactUs from "../../pages/Contact/ContactUs";
 import Register from "../../pages/Authentication/Register";
 import Login from "../../pages/Authentication/Login";
-import FlightResults from "../../pages/Flights/FlightResults";
-import FlightDetails from "../../pages/Flights/FlightDetails";
+import FlightResults from "../../pages/Flights/FlightResults/FlightResults";
+import FlightDetails from "../../pages/Flights/FlightDetails/FlightDetails";
+import AvailableFlights from "../../pages/Flights/FlightResults/AvailableFlights";
 
 const router = createBrowserRouter([
   // Basic Routes without Authentication
@@ -35,8 +36,12 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "availableFlights",
+        path: "flightResults",
         element: <FlightResults></FlightResults>,
+      },
+      {
+        path: "availableFlights",
+        element: <AvailableFlights></AvailableFlights>,
       },
       {
         path: "flightDetails",
