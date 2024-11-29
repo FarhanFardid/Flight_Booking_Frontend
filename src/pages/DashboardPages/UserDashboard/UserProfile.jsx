@@ -21,7 +21,7 @@ const UserProfile = () => {
       <div className="w-[80%] md:w-[40%] mx-auto my-3 md:my-16 p-6 md:p-12 bg-black bg-opacity-70 text-white shadow-lg rounded-2xl text-center">
         <div className="flex justify-center items-center w-full">
           <div className="w-full">
-            <div className="details bg-white bg-opacity-40 text-black p-3 md:p-6 rounded-md">
+            <div className="details bg-white bg-opacity-50 text-black p-3 md:p-6 rounded-md">
               <h2 className="text-xs md:text-sm font-medium pb-1 md:pb-2 ">
                 User Id: {userDetails.userId}
               </h2>
