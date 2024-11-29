@@ -1,10 +1,16 @@
-import { FaEdit, FaHome, FaUser, FaUserEdit } from "react-icons/fa";
+import { FaClipboardList, FaHome, FaUser, FaUserEdit } from "react-icons/fa";
 import Navigation from "../Shared/Navigation";
 import logo from "../assets/images/logo/logo1.jpeg";
-import { MdBook, MdCall, MdInfo } from "react-icons/md";
+import {
+  MdCall,
+  MdFlight,
+  MdInfo,
+  MdOutlineAirplaneTicket,
+} from "react-icons/md";
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router";
 import Footer from "../Shared/Footer";
+import { FaAddressBook } from "react-icons/fa6";
 const Dashboard = () => {
   const isAdmin = false;
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +22,7 @@ const Dashboard = () => {
         <div className="drawer-content">
           <label
             htmlFor="my-drawer-2"
-            className="btn bg-green-800 hover:bg-green-600 font-bold text-amber-600 drawer-button md:hidden w-full"
+            className="btn bg-blue-800 hover:bg-blue-900 font-bold text-white drawer-button md:hidden w-full"
           >
             Dashboard Menu
           </label>
@@ -24,44 +30,53 @@ const Dashboard = () => {
         </div>
         <div className="drawer-side min-h-fit">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-slate-800 text-blue-700 ps-5 min-h-full ">
-            <div className="flex  items-center justify-center md:justify-between ">
+          <ul className="menu p-4 w-80 bg-slate-950 text-blue-500 ps-5 min-h-full ">
+            <div className="flex  items-center justify-center">
               <img
                 src={logo}
                 alt="logo"
-                className="md:w-16 md:h-16 md:p-1 w-12 h-12 rounded-full md:mr-3 bg-white  me-4 md:me-2"
+                className="mt-3 md:w-16 md:h-16 md:p-1 w-12 h-12 rounded-full md:mr-3 bg-white  me-4 md:me-2"
               />
-              <h2 className="text-xl md:text-2xl font-bold text-center bg-gradient-to-r from-blue-500 to-yellow-500 bg-clip-text text-transparent">
+              <h2 className="text-xl md:text-2xl font-bold text-center bg-gradient-to-r from-blue-500 to-yellow-400 bg-clip-text text-transparent">
                 QuickFly
               </h2>
             </div>
             {isAdmin ? (
               <>
-                <h3 className="text-lg md:text-xl font-medium text-center pt-3 md:pt-7 text-black">
+                <h3 className="text-lg md:text-xl font-medium text-center pt-3 md:pt-7 text-white">
                   Admin DashBoard
                 </h3>
                 <li>
                   <NavLink
-                    to="/dashboard/adminProfile"
+                    to="/dashboard/adminAddFlight"
                     className="font-medium flex justify-start items-center mt-5"
                   >
-                    <FaUser className="w-6 h-6 text-blue-600 me-5"></FaUser>
-                    My Profile
+                    <MdFlight className="w-6 h-6 text-blue-600 me-5"></MdFlight>
+                    Add New Flight
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/dashboard/adminInventoryManagement"
+                    to="/dashboard/adminFlightManagement"
                     className="font-medium flex justify-start items-center mt-5"
                   >
-                    <MdBook className="w-6 h-6 text-[#D1922B] me-5" />
-                    Booking Management
+                    <FaClipboardList className="w-6 h-6 text-blue-600 me-5"></FaClipboardList>
+                    Flights Management
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/adminBookingManagement"
+                    className="font-medium flex justify-start items-center mt-5"
+                  >
+                    <FaAddressBook className="w-6 h-6 text-blue-600 me-5" />
+                    Flight Booking Management
                   </NavLink>
                 </li>
               </>
             ) : (
               <>
-                <h3 className="text-lg md:text-xl font-medium text-center pt-3 md:pt-7 text-black">
+                <h3 className="text-lg md:text-2xl font-medium text-center pt-3 md:pt-8 text-white">
                   User DashBoard
                 </h3>
                 <li>
@@ -75,7 +90,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/dashboard/userProfileUpdate"
+                    to="/dashboard/userProfileManagement"
                     className="font-medium flex justify-start items-center mt-5"
                   >
                     <FaUserEdit className="w-6 h-6 text-blue-600 me-5"></FaUserEdit>
@@ -84,17 +99,16 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/dashboard/"
+                    to="/dashboard/userBooking"
                     className="font-medium flex justify-start items-center mt-5"
                   >
-                    <FaEdit className="w-6 h-6 text-blue-600 me-5" />
+                    <MdOutlineAirplaneTicket className="w-6 h-6 text-blue-600 me-5" />
                     My Bookings
                   </NavLink>
                 </li>
               </>
             )}
             <hr className="my-5" />
-
             <li>
               <NavLink
                 to="/"
@@ -108,7 +122,7 @@ const Dashboard = () => {
                 to="/about"
                 className="font-medium flex justify-start items-center mt-5"
               >
-                <MdInfo className="w-6 h-6 text-[#D1922B] me-5" />
+                <MdInfo className="w-6 h-6 text-blue-600 me-5" />
                 About Us
               </NavLink>
             </li>
@@ -117,7 +131,7 @@ const Dashboard = () => {
                 to="/contact"
                 className="font-medium flex justify-start items-center mt-5"
               >
-                <MdCall className="w-6 h-6 text-[#D1922B] me-5" />
+                <MdCall className="w-6 h-6 text-blue-600 me-5" />
                 Contact Us
               </NavLink>
             </li>
