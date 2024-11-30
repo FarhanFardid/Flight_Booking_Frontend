@@ -1,9 +1,25 @@
+import { useEffect, useState } from "react";
 import backgroundImage from "../../../assets/images/planeImg/plane3.jpg";
 import Title from "../../../components/Title";
 import AdminFlightManagementList from "./AdminFlightManagementList";
+import { getAllFlights } from "../../../AxiosSecure/flightServices";
 
 const AdminFlightManagement = () => {
-  const flightsInfo = [
+  const [flightsInfo, setFlightsInfo] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getAllFlights();
+        console.log("Response:", response);
+        setFlightsInfo(response);
+      } catch (err) {
+        console.error("Error details:", err.response?.data || err.message);
+        toast.error("Flights Data Load Failed");
+      }
+    };
+    fetchData();
+  }, []);
+  const flightsInf = [
     {
       flightId: 1,
       airline: "Air India",
@@ -90,7 +106,7 @@ const AdminFlightManagement = () => {
                 <th>Date</th>
                 <th>Time</th>
                 <th>Available Seats</th>
-                <th>Ticket Price</th>
+                <th>Ticket Price(USD)</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
@@ -98,7 +114,7 @@ const AdminFlightManagement = () => {
             <tbody className="text-center font-medium">
               {flightsInfo.map((f, index) => (
                 <AdminFlightManagementList
-                  key={f.flightId}
+                  key={f._id}
                   flight={f}
                   index={index}
                 />

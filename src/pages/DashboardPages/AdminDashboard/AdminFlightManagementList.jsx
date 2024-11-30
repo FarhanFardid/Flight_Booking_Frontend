@@ -4,12 +4,12 @@ import { Link } from "react-router";
 
 const AdminFlightManagementList = ({ flight, index }) => {
   const {
-    flightId,
-    flightNum,
+    _id,
+    flightNumber,
     airline,
     origin,
     destination,
-    seats,
+    availableSeats,
     price,
     time,
     date,
@@ -20,15 +20,15 @@ const AdminFlightManagementList = ({ flight, index }) => {
         <label>{index + 1}.</label>
       </th>
       <td>
-        <div className="font-semibold">{flightId}</div>
+        <div className="font-semibold">{_id}</div>
       </td>
       <td>{airline}</td>
-      <td>{flightNum}</td>
+      <td>{flightNumber}</td>
       <td>{origin}</td>
       <td>{destination}</td>
       <td>{date}</td>
       <td>{time}</td>
-      <td>{seats}</td>
+      <td>{availableSeats}</td>
       <td>{price}</td>
       <td>
         <Link to="/dashboard/adminFlightUpdate">
