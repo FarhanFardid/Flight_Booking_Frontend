@@ -4,6 +4,7 @@ import backgroundImage from "../../assets/images/planeImg/plane2.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
+import { registerUser } from "./auth";
 const Register = () => {
   const {
     register,
@@ -15,22 +16,26 @@ const Register = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  const onSubmit = (data) => {
-    const userName = data.userName;
+  const onSubmit = async (data) => {
+    // console.log(data);
+    const username = data.userName;
     const email = data.email;
     const password = data.password;
-    // console.log(data);
-    const userInfo = {
-      userName,
+
+    const userData = {
+      username,
       email,
       password,
-    };
-    const userDetails = {
-      userName,
-      email,
       role: "User",
     };
-    // console.log(userDetails);
+    console.log(userData);
+    try {
+      const response = await registerUser(userData);
+      alert(response.message);
+      console.log(response.message);
+    } catch (error) {
+      alert(error.response.data.message);
+    }
   };
   return (
     <div>
