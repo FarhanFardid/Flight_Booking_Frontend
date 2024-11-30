@@ -29,8 +29,8 @@ const Register = () => {
     const userData = {
       username,
       email,
-      role,
       password,
+      role,
     };
     console.log(userData);
     try {
