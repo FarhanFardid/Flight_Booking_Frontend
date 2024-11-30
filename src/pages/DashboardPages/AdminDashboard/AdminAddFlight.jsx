@@ -4,6 +4,7 @@ import Title from "../../../components/Title";
 import { addFlight } from "../../../AxiosSecure/flightServices";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router";
 const AdminAddFlight = () => {
   const {
     register,
@@ -11,7 +12,7 @@ const AdminAddFlight = () => {
     reset,
     formState: { errors },
   } = useForm();
-
+  const navigate = useNavigate();
   const onSubmit = async (data) => {
     // console.log(data);
     const airline = data.airline;
@@ -39,15 +40,11 @@ const AdminAddFlight = () => {
       const response = await addFlight(flightData);
       toast.success("Flight Added Successfully");
       console.log("Response:", response);
-      // reset();
-      // alert("Flight added successfully");
+      reset();
+      navigate("/dashboard/adminFlightManagement");
     } catch (err) {
       console.error("Error details:", err.response?.data || err.message);
       toast.error("Flight Add Failed");
-      // alert(
-      //   "Error adding flight: " +
-      //     (err.response?.data.message || "Unknown error")
-      // );
     }
   };
   return (
