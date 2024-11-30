@@ -2,25 +2,24 @@ import { FaArrowCircleRight } from "react-icons/fa";
 import { Link } from "react-router";
 
 const AvailableFlightList = ({ flight, index }) => {
-  const { flight_id, flight_number, airline, origin, destination, date } =
-    flight;
+  const { _id, flightNumber, airline, origin, destination, date } = flight;
   return (
-    <tr className="font-semibold">
+    <tr className="font-semibold text-black">
       <th>
         <label>{index + 1}.</label>
       </th>
       <td>
-        <div className="font-semibold">{flight_id}</div>
+        <div className="font-semibold">{_id}</div>
       </td>
       <td>{airline}</td>
-      <td>{flight_number}</td>
+      <td>{flightNumber}</td>
       <td>{origin}</td>
       <td>{destination}</td>
       <td>{date}</td>
       <td>
         <Link to="/">
           <button
-            onClick={() => console.log(id)}
+            onClick={() => console.log(_id)}
             className="btn-xs btn-circle bg-blue-600 text-white hover:bg-blue-900"
           >
             {" "}

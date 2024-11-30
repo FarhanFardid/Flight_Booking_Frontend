@@ -15,7 +15,7 @@ const AdminFlightManagementList = ({ flight, index }) => {
     date,
   } = flight;
   return (
-    <tr className="font-semibold">
+    <tr className="font-semibold text-black">
       <th>
         <label>{index + 1}.</label>
       </th>
