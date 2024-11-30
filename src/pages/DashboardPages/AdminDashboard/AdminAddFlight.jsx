@@ -71,13 +71,20 @@ const AdminAddFlight = () => {
               <div className="col-span-1">
                 <label>
                   <p className="mb-2">Airline Company:</p>
-                  <input
+                  <select
                     className="w-full text-black rounded-lg p-2"
                     type="text"
                     name="airline"
-                    placeholder="Enter Airline Company"
                     {...register("airline", { required: true })}
-                  />
+                  >
+                    <option value="">Enter Airline Company</option>
+                    <option value="Emirates">Emirates</option>
+                    <option value="Bangladesh">Bangladesh_Biman</option>
+                    <option value="Qatar Airways">Qatar_Airways</option>
+                    <option value="Kuwait Airways">Kuwait_Airways</option>
+                    <option value="India Airways">India_Airways</option>
+                    <option value="United Airlines">United_Airlines</option>
+                  </select>
                   {errors.airline && (
                     <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
                       Warning: Airline field is required
@@ -88,16 +95,23 @@ const AdminAddFlight = () => {
               <div className="col-span-1">
                 <label>
                   <p className="mb-2">Flight Number:</p>
-                  <input
+                  <select
                     className="w-full text-black rounded-lg p-2"
                     type="text"
                     name="flightNum"
-                    placeholder="Enter Flight Number"
                     {...register("flightNum", { required: true })}
-                  />
+                  >
+                    <option value="">Enter Flight Number</option>
+                    <option value="EK-707">EK-707</option>
+                    <option value="BB-777">BB-777</option>
+                    <option value="QA-709">QA-709</option>
+                    <option value="KA-711">KA-711</option>
+                    <option value="IA-077">IA-077</option>
+                    <option value="UA-007">UA-007</option>
+                  </select>
                   {errors.flightNum && (
                     <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
-                      Warning: Flight No. field is required
+                      Warning: FlightNum field is required
                     </span>
                   )}
                 </label>
@@ -105,34 +119,48 @@ const AdminAddFlight = () => {
               <div className="col-span-1">
                 {" "}
                 <label>
-                  <p className="mb-2">Flight Origin:</p>
-                  <input
+                  <p className="mb-2">Flight Departure City:</p>
+                  <select
                     className="w-full text-black rounded-lg p-2"
                     type="text"
                     name="origin"
-                    placeholder="Enter Flight Origin"
                     {...register("origin", { required: true })}
-                  />
+                  >
+                    <option value="">Enter Departure City </option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Doha">Doha</option>
+                    <option value="Kuwait_City">Kuwait City</option>
+                    <option value="New_Delhi">New Delhi</option>
+                    <option value="New_York">New York</option>
+                  </select>
                   {errors.origin && (
                     <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
-                      Warning: Origin field is required
+                      Warning: Departure City field is required
                     </span>
                   )}
                 </label>
               </div>
               <div className="col-span-1">
                 <label>
-                  <p className="mb-2">Flight Destination:</p>
-                  <input
+                  <p className="mb-2">Flight Destination City:</p>
+                  <select
                     className="w-full text-black rounded-lg p-2"
                     type="text"
                     name="destination"
-                    placeholder="Enter Flight Destination"
                     {...register("destination", { required: true })}
-                  />
+                  >
+                    <option value="">Enter Destination City </option>
+                    <option value="Jeddah">Jeddah</option>
+                    <option value="Chittagong">Chittagong</option>
+                    <option value="Sharjah">Sharjah</option>
+                    <option value="London">London</option>
+                    <option value="Berlin">Berlin</option>
+                    <option value="Manchester">Manchester</option>
+                  </select>
                   {errors.destination && (
                     <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
-                      Warning: Destination field is required
+                      Warning: Destination City field is required
                     </span>
                   )}
                 </label>
@@ -187,7 +215,8 @@ const AdminAddFlight = () => {
                     type="number"
                     name="seats"
                     placeholder="Enter Available Seats"
-                    min={1}
+                    min={0}
+                    max={300}
                     {...register("seats", { required: true })}
                   />
                   {errors.seats && (
@@ -206,6 +235,8 @@ const AdminAddFlight = () => {
                     type="number"
                     name="price"
                     placeholder="Enter Ticket Price"
+                    min={100}
+                    max={5000}
                     {...register("price", { required: true })}
                   />
                   {errors.price && (
