@@ -19,6 +19,7 @@ import AdminFlightUpdate from "../../pages/DashboardPages/AdminDashboard/AdminFl
 import AdminFlightManagement from "../../pages/DashboardPages/AdminDashboard/AdminFlightManagement";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminRoute from "./AdminRoute";
+import { getFlightById } from "../../AxiosSecure/flightServices";
 
 const router = createBrowserRouter([
   // Basic Routes without Authentication
@@ -55,8 +56,15 @@ const router = createBrowserRouter([
         element: <AvailableFlights></AvailableFlights>,
       },
       {
-        path: "flightDetails",
+        path: "flightDetails/:id",
         element: <FlightDetails></FlightDetails>,
+        loader: async ({ params }) => {
+          const response = await getFlightById(params.id);
+          if (!response) {
+            throw new Error("Failed to load product data");
+          }
+          return response;
+        },
       },
       {
         path: "flightBooking",
