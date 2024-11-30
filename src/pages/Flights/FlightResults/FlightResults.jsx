@@ -1,7 +1,11 @@
+import { useLocation } from "react-router";
 import Title from "../../../components/Title";
 import AvailableFlightList from "./AvailableFlightList";
 
 const FlightResults = () => {
+  const location = useLocation();
+  const { flights } = location.state || { flights: [] };
+  console.log({ flights });
   const searchFlightsDetails = [
     {
       flight_id: 1,

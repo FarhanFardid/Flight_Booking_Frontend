@@ -14,10 +14,14 @@ export const getFlightById = async (id) => {
 
 // ------------------- Flights searching data on criteria -------------------
 export const searchFlights = async (query) => {
-  const response = await axiosInstance.get("/search", {
-    params: query,
-  });
-  return response.data;
+  try {
+    const response = await axiosInstance.get("/search", {
+      params: query, 
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
 };
 
 // --------------------------- Send new flights data ------------------------
@@ -25,7 +29,6 @@ export const addFlight = async (flightData) => {
   const response = await axiosInstance.post("/", flightData);
   return response.data;
 };
-
 
 // ------------------------- Update flight data -------------------
 export const updateFlight = async (id, flightData) => {
