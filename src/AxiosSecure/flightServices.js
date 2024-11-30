@@ -2,19 +2,19 @@ import axiosInstance from "./axiosInstance";
 
 // ---------------- Fetch all flights data --------------------------
 export const getAllFlights = async () => {
-  const response = await axiosInstance.get("/flights");
+  const response = await axiosInstance.get("/");
   return response.data;
 };
 
 //-------------------- Fetch  specific flight data -----------------
 export const getFlightById = async (id) => {
-  const response = await axiosInstance.get(`/flights/${id}`);
+  const response = await axiosInstance.get(`/${id}`);
   return response.data;
 };
 
 // ------------------- Flights searching data on criteria -------------------
 export const searchFlights = async (query) => {
-  const response = await axiosInstance.get("/flights/search", {
+  const response = await axiosInstance.get("/search", {
     params: query,
   });
   return response.data;
@@ -22,18 +22,19 @@ export const searchFlights = async (query) => {
 
 // --------------------------- Send new flights data ------------------------
 export const addFlight = async (flightData) => {
-  const response = await axiosInstance.post("/flights", flightData);
+  const response = await axiosInstance.post("/", flightData);
   return response.data;
 };
 
+
 // ------------------------- Update flight data -------------------
 export const updateFlight = async (id, flightData) => {
-  const response = await axiosInstance.put(`/flights/${id}`, flightData);
+  const response = await axiosInstance.put(`/${id}`, flightData);
   return response.data;
 };
 
 // ----------------------- Delete a flight data ---------------------------
 export const deleteFlight = async (id) => {
-  const response = await axiosInstance.delete(`/flights/${id}`);
+  const response = await axiosInstance.delete(`/${id}`);
   return response.data;
 };

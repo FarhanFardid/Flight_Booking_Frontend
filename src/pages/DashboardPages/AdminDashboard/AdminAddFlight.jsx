@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
 import backgroundImage from "../../../assets/images/planeImg/plane3.jpg";
 import Title from "../../../components/Title";
-
+import { addFlight } from "../../../AxiosSecure/flightServices";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AdminAddFlight = () => {
   const {
     register,
@@ -10,28 +12,43 @@ const AdminAddFlight = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    // console.log(data);
     const airline = data.airline;
-    const flightNum = data.flightNum;
+    const flightNumber = data.flightNum;
     const origin = data.origin;
     const destination = data.destination;
     const date = data.date;
     const time = data.time;
-    const seats = data.seats;
+    const availableSeats = data.seats;
     const price = data.price;
 
-    // console.log(data);
-    const flightInfo = {
+    const flightData = {
+      flightNumber,
       airline,
-      flightNum,
       origin,
       destination,
-      date,
+      date: new Date(date).toISOString(),
       time,
-      seats,
       price,
+      availableSeats,
     };
-    // console.log(flightInfo);
+    console.log(flightData);
+
+    try {
+      const response = await addFlight(flightData);
+      toast.success("Flight Added Successfully");
+      console.log("Response:", response);
+      // reset();
+      // alert("Flight added successfully");
+    } catch (err) {
+      console.error("Error details:", err.response?.data || err.message);
+      toast.error("Flight Add Failed");
+      // alert(
+      //   "Error adding flight: " +
+      //     (err.response?.data.message || "Unknown error")
+      // );
+    }
   };
   return (
     <div
