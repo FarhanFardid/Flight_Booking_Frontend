@@ -5,6 +5,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
 import { registerUser } from "./auth";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
   const {
     register,
@@ -20,21 +22,24 @@ const Register = () => {
     // console.log(data);
     const username = data.userName;
     const email = data.email;
+    const role = data.role;
     const password = data.password;
 
     const userData = {
       username,
       email,
+      role,
       password,
-      role: "User",
     };
     console.log(userData);
     try {
       const response = await registerUser(userData);
-      alert(response.message);
+      toast.success("User Registered Successfully");
       console.log(response.message);
+      reset();
     } catch (error) {
-      alert(error.response.data.message);
+      console.log(error.response.data.message);
+      toast.error("User Registration Failed");
     }
   };
   return (
@@ -95,7 +100,27 @@ const Register = () => {
                   </div>
                 </label>
                 <br />
+                <label>
+                  <p className="mb-2">Role:</p>
+                  <div className="h-[2.5rem]">
+                    <select
+                      className="w-[20rem] md:w-[28rem] mb-2 text-black rounded-lg"
+                      name="role"
+                      {...register("role", { required: true })}
+                    >
+                      <option value="">Select your role</option>
+                      <option value="User">User</option>
+                      <option value="Admin">Admin</option>
+                    </select>
+                    {errors.role && (
+                      <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
+                        Warning: Role field is required
+                      </span>
+                    )}
+                  </div>
+                </label>
 
+                <br />
                 <div>
                   <label>
                     <p className="mb-2">Password:</p>
