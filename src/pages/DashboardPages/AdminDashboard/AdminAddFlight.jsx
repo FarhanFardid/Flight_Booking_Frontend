@@ -167,7 +167,7 @@ const AdminAddFlight = () => {
               </div>
               <div className="col-span-1">
                 <label>
-                  <p className="mb-2">Travel Date:</p>
+                  <p className="mb-2">Flight Date:</p>
                   <input
                     className="w-full text-black rounded-lg p-2"
                     type="date"

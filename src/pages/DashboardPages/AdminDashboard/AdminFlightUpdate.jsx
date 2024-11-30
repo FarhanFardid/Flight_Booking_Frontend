@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import backgroundImage from "../../../assets/images/planeImg/plane3.jpg";
 import Title from "../../../components/Title";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { updateFlight } from "../../../AxiosSecure/flightServices";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AdminFlightUpdate = () => {
+  const navigate = useNavigate();
   const flightDetails = useLoaderData();
   console.log(flightDetails);
   const {
@@ -30,21 +31,29 @@ const AdminFlightUpdate = () => {
   const onSubmit = async (data) => {
     // console.log(data);
     const airline = data.airline;
-    const flightNumber = data.flightNumber;
+    const flightNumber = data.flightNum;
+    const origin = data.origin;
+    const destination = data.destination;
+    const date = data.date;
+    const time = data.time;
     const availableSeats = data.seats;
     const price = data.price;
     const updatedFlightData = {
       flightNumber,
       airline,
-      availableSeats,
+      origin,
+      destination,
+      date: new Date(date).toISOString(),
+      time,
       price,
+      availableSeats,
     };
     console.log(updatedFlightData);
     try {
       const response = await updateFlight(_id, updatedFlightData);
       toast.success("Flight Data Updated Successfully");
       console.log("Response:", response);
-      // navigate("/dashboard/adminFlightManagement");
+      navigate("/dashboard/adminFlightManagement");
     } catch (err) {
       console.error("Error details:", err.response?.data || err.message);
       toast.error("Flight Data Update Failed");
@@ -100,14 +109,104 @@ const AdminFlightUpdate = () => {
 
               <div className="col-span-1">
                 <label>
+                  <p className="mb-2">Flight Departure City:</p>
+                  <select
+                    className="w-full text-black rounded-lg p-2"
+                    type="text"
+                    defaultValue={origin}
+                    name="origin"
+                    {...register("origin", { required: true })}
+                  >
+                    <option value="">Enter Departure City </option>
+                    <option value="Dubai">Dubai</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Doha">Doha</option>
+                    <option value="Kuwait_City">Kuwait City</option>
+                    <option value="New_Delhi">New Delhi</option>
+                    <option value="New_York">New York</option>
+                  </select>
+                  {errors.origin && (
+                    <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
+                      Warning: Departure City field is required
+                    </span>
+                  )}
+                </label>
+              </div>
+              <div className="col-span-1">
+                <label>
+                  <p className="mb-2">Flight Destination City:</p>
+                  <select
+                    className="w-full text-black rounded-lg p-2"
+                    type="text"
+                    defaultValue={destination}
+                    name="destination"
+                    {...register("destination", { required: true })}
+                  >
+                    <option value="">Enter Destination City </option>
+                    <option value="Jeddah">Jeddah</option>
+                    <option value="Chittagong">Chittagong</option>
+                    <option value="Sharjah">Sharjah</option>
+                    <option value="London">London</option>
+                    <option value="Berlin">Berlin</option>
+                    <option value="Manchester">Manchester</option>
+                  </select>
+                  {errors.destination && (
+                    <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
+                      Warning: Destination City field is required
+                    </span>
+                  )}
+                </label>
+              </div>
+              <div className="col-span-1">
+                <label>
+                  <p className="mb-2">Flight Date:</p>
+                  <input
+                    className="w-full text-black rounded-lg p-2"
+                    type="date"
+                    name="date"
+                    placeholder="Enter Travel Date"
+                    {...register("date", {
+                      required: true,
+                      validate: (value) =>
+                        new Date(value) >= new Date() ||
+                        "Date cannot be in the past",
+                    })}
+                  />
+                  {errors.date && (
+                    <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
+                      Warning: Date field is required & Date can't be in the
+                      past
+                    </span>
+                  )}
+                </label>
+              </div>
+              <div className="col-span-1">
+                <label>
+                  <p className="mb-2">Departure Time:</p>
+                  <input
+                    className="w-full text-black rounded-lg p-2"
+                    type="time"
+                    name="time"
+                    placeholder="Enter Departure Time"
+                    {...register("time", { required: true })}
+                  />
+                  {errors.time && (
+                    <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
+                      Warning: Time field is required
+                    </span>
+                  )}
+                </label>
+              </div>
+              <div className="col-span-1">
+                <label>
                   <p className="mb-2">Available Seats :</p>
-
                   <input
                     className="w-full text-black rounded-lg p-2"
                     type="number"
                     name="seats"
                     placeholder="Enter Available Seats"
                     min={0}
+                    max={300}
                     defaultValue={availableSeats}
                     {...register("seats", { required: true })}
                   />
@@ -127,6 +226,8 @@ const AdminFlightUpdate = () => {
                     name="price"
                     placeholder="Enter Ticket Price"
                     defaultValue={price}
+                    min={100}
+                    max={5000}
                     {...register("price", { required: true })}
                   />
                   {errors.price && (
