@@ -17,6 +17,7 @@ import AdminBookingManagement from "../../pages/DashboardPages/AdminDashboard/Ad
 import AdminAddFlight from "../../pages/DashboardPages/AdminDashboard/AdminAddFlight";
 import AdminFlightUpdate from "../../pages/DashboardPages/AdminDashboard/AdminFlightUpdate";
 import AdminFlightManagement from "../../pages/DashboardPages/AdminDashboard/AdminFlightManagement";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   // Basic Routes without Authentication
@@ -58,13 +59,21 @@ const router = createBrowserRouter([
       },
       {
         path: "flightBooking",
-        element: <FlightBooking></FlightBooking>,
+        element: (
+          <ProtectedRoute>
+            <FlightBooking></FlightBooking>
+          </ProtectedRoute>
+        ),
       },
     ],
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <ProtectedRoute>
+        <Dashboard></Dashboard>
+      </ProtectedRoute>
+    ),
     children: [
       // User Dashboard Routes
       {
