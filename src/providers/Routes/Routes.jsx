@@ -122,12 +122,19 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "adminFlightUpdate",
+        path: "adminFlightUpdate/:id",
         element: (
           <AdminRoute>
             <AdminFlightUpdate></AdminFlightUpdate>
           </AdminRoute>
         ),
+        loader: async ({ params }) => {
+          const response = await getFlightById(params.id);
+          if (!response) {
+            throw new Error("Failed to load product data");
+          }
+          return response;
+        },
       },
     ],
   },

@@ -31,7 +31,7 @@ const AdminFlightManagementList = ({ flight, index }) => {
       <td>{availableSeats}</td>
       <td>{price}</td>
       <td>
-        <Link to="/dashboard/adminFlightUpdate">
+        <Link to={`/dashboard/adminFlightUpdate/${_id}`}>
           <button
             onClick={() => console.log(_id)}
             className="btn-xs btn-circle bg-blue-600 text-white hover:bg-blue-900"

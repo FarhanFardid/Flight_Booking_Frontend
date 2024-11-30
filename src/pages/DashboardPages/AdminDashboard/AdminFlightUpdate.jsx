@@ -1,41 +1,54 @@
 import { useForm } from "react-hook-form";
 import backgroundImage from "../../../assets/images/planeImg/plane3.jpg";
 import Title from "../../../components/Title";
+import { useLoaderData } from "react-router";
+import { updateFlight } from "../../../AxiosSecure/flightServices";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminFlightUpdate = () => {
+  const flightDetails = useLoaderData();
+  console.log(flightDetails);
+  const {
+    _id,
+    flightNumber,
+    origin,
+    destination,
+    time,
+    date,
+    price,
+    availableSeats,
+    airline,
+  } = flightDetails;
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const flightDetails = {
-    flight_id: 1,
-    flight_number: "AI-203",
-    airline: "Air India",
-    origin: "New Delhi, India",
-    destination: "London, UK",
-    date: "2024-12-15",
-    flight_time: "10:30 AM", // Departure time
-    duration: "9h 30m", // Total duration
-    price: 750, // Price in USD
-    available_seats: 45, // Number of available seats
-  };
 
-  const onSubmit = (data) => {
-    const airline = data.airline;
-    const flightNum = data.flightNum;
-    const seats = data.seats;
-    const price = data.price;
-
+  const onSubmit = async (data) => {
     // console.log(data);
-    const updatedInfo = {
+    const airline = data.airline;
+    const flightNumber = data.flightNumber;
+    const availableSeats = data.seats;
+    const price = data.price;
+    const updatedFlightData = {
+      flightNumber,
       airline,
-      flightNum,
-      seats,
+      availableSeats,
       price,
     };
-    // console.log(updateInfo);
+    console.log(updatedFlightData);
+    try {
+      const response = await updateFlight(_id, updatedFlightData);
+      toast.success("Flight Data Updated Successfully");
+      console.log("Response:", response);
+      // navigate("/dashboard/adminFlightManagement");
+    } catch (err) {
+      console.error("Error details:", err.response?.data || err.message);
+      toast.error("Flight Data Update Failed");
+    }
   };
   return (
     <div
@@ -66,7 +79,7 @@ const AdminFlightUpdate = () => {
                     type="text"
                     name="airline"
                     readOnly
-                    defaultValue={flightDetails.airline}
+                    defaultValue={airline}
                     placeholder="Enter Airline Company"
                   />
                 </label>
@@ -77,10 +90,10 @@ const AdminFlightUpdate = () => {
                   <input
                     className="w-full text-black rounded-lg p-2"
                     type="text"
-                    name="flightNum"
+                    name="flightNumber"
                     placeholder="Enter Flight Number"
                     readOnly
-                    defaultValue={flightDetails.flight_number}
+                    defaultValue={flightNumber}
                   />
                 </label>
               </div>
@@ -95,7 +108,7 @@ const AdminFlightUpdate = () => {
                     name="seats"
                     placeholder="Enter Available Seats"
                     min={0}
-                    defaultValue={flightDetails.available_seats}
+                    defaultValue={availableSeats}
                     {...register("seats", { required: true })}
                   />
                   {errors.seats && (
@@ -113,7 +126,7 @@ const AdminFlightUpdate = () => {
                     type="number"
                     name="price"
                     placeholder="Enter Ticket Price"
-                    defaultValue={flightDetails.price}
+                    defaultValue={price}
                     {...register("price", { required: true })}
                   />
                   {errors.price && (
