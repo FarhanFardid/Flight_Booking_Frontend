@@ -6,6 +6,7 @@ import { getAllFlights } from "../../../AxiosSecure/flightServices";
 
 const AdminFlightManagement = () => {
   const [flightsInfo, setFlightsInfo] = useState([]);
+  const [refetchTrigger, setRefetchTrigger] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,8 +19,10 @@ const AdminFlightManagement = () => {
       }
     };
     fetchData();
-  }, []);
-
+  }, [refetchTrigger]);
+  const triggerRefetch = () => {
+    setRefetchTrigger(!refetchTrigger);
+  };
   return (
     <div
       className="bg-no-repeat bg-center bg-cover p-2 md:p-8 max-h-full md:h-full"
@@ -60,6 +63,7 @@ const AdminFlightManagement = () => {
                   key={f._id}
                   flight={f}
                   index={index}
+                  triggerRefetch={triggerRefetch}
                 />
               ))}
             </tbody>

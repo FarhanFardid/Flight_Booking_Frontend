@@ -1,8 +1,11 @@
 import { FaArrowCircleUp } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router";
+import { deleteFlight } from "../../../AxiosSecure/flightServices";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const AdminFlightManagementList = ({ flight, index }) => {
+const AdminFlightManagementList = ({ flight, index, triggerRefetch }) => {
   const {
     _id,
     flightNumber,
@@ -18,6 +21,26 @@ const AdminFlightManagementList = ({ flight, index }) => {
     const modDate = new Date(date);
     return modDate.toISOString().split("T")[0];
   };
+
+  const handleFlightDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this flight?"
+    );
+    if (confirmDelete) {
+      try {
+        const response = await deleteFlight(id);
+        toast.success("Flight Deleted Successfully");
+        console.log("Response:", response);
+        triggerRefetch();
+      } catch (err) {
+        console.error("Error details:", err.response?.data || err.message);
+        toast.error("Flight Deletion Failed");
+      }
+    } else {
+      console.log("Deletion canceled.");
+    }
+  };
+
   return (
     <tr className="font-semibold text-black">
       <th>
@@ -47,7 +70,9 @@ const AdminFlightManagementList = ({ flight, index }) => {
       </td>
       <td>
         <button
-          onClick={() => console.log(_id)}
+          onClick={() => {
+            handleFlightDelete(_id);
+          }}
           className="btn-xs btn-circle bg-red-700 text-white hover:bg-red-900"
         >
           {" "}

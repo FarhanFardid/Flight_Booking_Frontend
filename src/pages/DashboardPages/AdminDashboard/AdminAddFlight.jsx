@@ -79,11 +79,11 @@ const AdminAddFlight = () => {
                   >
                     <option value="">Enter Airline Company</option>
                     <option value="Emirates">Emirates</option>
-                    <option value="Bangladesh">Bangladesh_Biman</option>
-                    <option value="Qatar Airways">Qatar_Airways</option>
-                    <option value="Kuwait Airways">Kuwait_Airways</option>
-                    <option value="India Airways">India_Airways</option>
-                    <option value="United Airlines">United_Airlines</option>
+                    <option value="Biman Bangladesh">Biman Bangladesh</option>
+                    <option value="Qatar Airways">Qatar Airways</option>
+                    <option value="Kuwait Airways">Kuwait Airways</option>
+                    <option value="India Airways">India Airways</option>
+                    <option value="United Airlines">United Airlines</option>
                   </select>
                   {errors.airline && (
                     <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
@@ -130,9 +130,9 @@ const AdminAddFlight = () => {
                     <option value="Dubai">Dubai</option>
                     <option value="Dhaka">Dhaka</option>
                     <option value="Doha">Doha</option>
-                    <option value="Kuwait_City">Kuwait City</option>
-                    <option value="New_Delhi">New Delhi</option>
-                    <option value="New_York">New York</option>
+                    <option value="Kuwait City">Kuwait City</option>
+                    <option value="New Delhi">New Delhi</option>
+                    <option value="New York">New York</option>
                   </select>
                   {errors.origin && (
                     <span className="text-red-700 text-xs block bg-white ps-2 pt-1">

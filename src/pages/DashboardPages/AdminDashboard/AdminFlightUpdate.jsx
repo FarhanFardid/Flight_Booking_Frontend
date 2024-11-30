@@ -121,9 +121,9 @@ const AdminFlightUpdate = () => {
                     <option value="Dubai">Dubai</option>
                     <option value="Dhaka">Dhaka</option>
                     <option value="Doha">Doha</option>
-                    <option value="Kuwait_City">Kuwait City</option>
-                    <option value="New_Delhi">New Delhi</option>
-                    <option value="New_York">New York</option>
+                    <option value="Kuwait City">Kuwait City</option>
+                    <option value="New Delhi">New Delhi</option>
+                    <option value="New York">New York</option>
                   </select>
                   {errors.origin && (
                     <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
