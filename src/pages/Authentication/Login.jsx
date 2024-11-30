@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Title from "../../components/Title";
 import backgroundImage from "../../assets/images/planeImg/plane2.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -7,7 +7,9 @@ import { Link, useNavigate } from "react-router";
 import { loginUser } from "./auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../providers/AuthProvider/AuthContext";
 const Login = () => {
+  const { setLoading } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -28,15 +30,15 @@ const Login = () => {
       password,
     };
     console.log(userInfo);
-
     try {
       const response = await loginUser(userInfo);
       // Store token in localStorage
       localStorage.setItem("token", response.token);
+      setLoading(false);
       toast.success("User Login Successful");
       // console.log(response.message);
       reset();
-    navigate('/');
+      navigate("/");
     } catch (error) {
       console.log(error.response.data.message);
       toast.error("User Login Failed");

@@ -1,16 +1,12 @@
 import { Navbar } from "flowbite-react";
 import { Link } from "react-router";
-// import { Link } from "react-router";
-// import { useContext } from "react";
-// import { AuthContext } from "../context/AuthProvider/AuthProvider";
+import { AuthContext } from "../providers/AuthProvider/AuthContext";
+import { useContext } from "react";
 // import useAdmin from "../Hooks/useAdmin";
 
 const NavLinks = () => {
-  //   const { user } = useContext(AuthContext);
-  //   const { isAdmin } = useAdmin();
-  //   console.log(isAdmin);
-  const user = true;
-  const isAdmin = false;
+  const { user, logout, loading } = useContext(AuthContext);
+  console.log(user);
   return (
     <Navbar fluid className="bg-black">
       <Navbar.Collapse>
@@ -57,7 +53,7 @@ const NavLinks = () => {
           Contact Us
         </Navbar.Link>
         {user ? (
-          isAdmin ? (
+          user?.role === "Admin" ? (
             <Navbar.Link
               as={Link}
               to="/dashboard/adminAddFlight"
