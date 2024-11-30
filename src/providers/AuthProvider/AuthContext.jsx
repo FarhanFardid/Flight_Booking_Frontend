@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   // Check if the user is logged in on app load
   useEffect(() => {
     const token = localStorage.getItem("token");
+
     if (token) {
       // decoding token
       const decodedToken = JSON.parse(atob(token.split(".")[1]));

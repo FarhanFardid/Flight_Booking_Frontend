@@ -5,7 +5,8 @@ import { useContext } from "react";
 // import useAdmin from "../Hooks/useAdmin";
 
 const NavLinks = () => {
-  const { user} = useContext(AuthContext);
+  const { user,loading} = useContext(AuthContext);
+  // debugger
   console.log(user);
   return (
     <Navbar fluid className="bg-black">
@@ -52,7 +53,7 @@ const NavLinks = () => {
         >
           Contact Us
         </Navbar.Link>
-        {user ? (
+        {user? (
           user?.role === "Admin" ? (
             <Navbar.Link
               as={Link}

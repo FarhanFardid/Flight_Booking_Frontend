@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../providers/AuthProvider/AuthContext";
 const Login = () => {
-  const { setLoading } = useContext(AuthContext);
+  const { setLoading, setUser, user } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -32,9 +32,16 @@ const Login = () => {
     console.log(userInfo);
     try {
       const response = await loginUser(userInfo);
+      // debugger;
+      if (response.token) {
+        const decodedToken = JSON.parse(atob(response.token.split(".")[1]));
+        setUser({ id: decodedToken.id, role: decodedToken.role });
+      }
+
+      console.log(user);
+      setLoading(false);
       // Store token in localStorage
       localStorage.setItem("token", response.token);
-      setLoading(false);
       toast.success("User Login Successful");
       // console.log(response.message);
       reset();

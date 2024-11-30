@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider/AuthContext";
 const Navigation = () => {
-  const { user, logout, loading } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
 
   return (
     <Navbar fluid className="bg-slate-900 px-4 py-2">
@@ -23,7 +23,7 @@ const Navigation = () => {
           </span>
         </div>
       </Navbar.Brand>
-      {user && !loading ? (
+      {user ? (
         <div className="flex items-center">
           <button
             onClick={logout}

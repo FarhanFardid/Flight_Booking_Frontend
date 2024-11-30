@@ -14,6 +14,10 @@ const AdminFlightManagementList = ({ flight, index }) => {
     time,
     date,
   } = flight;
+  const formatDate = (date) => {
+    const modDate = new Date(date);
+    return modDate.toISOString().split("T")[0];
+  };
   return (
     <tr className="font-semibold text-black">
       <th>
@@ -26,7 +30,7 @@ const AdminFlightManagementList = ({ flight, index }) => {
       <td>{flightNumber}</td>
       <td>{origin}</td>
       <td>{destination}</td>
-      <td>{date}</td>
+      <td>{formatDate(date)}</td>
       <td>{time}</td>
       <td>{availableSeats}</td>
       <td>{price}</td>
