@@ -19,63 +19,6 @@ const AdminFlightManagement = () => {
     };
     fetchData();
   }, []);
-  const flightsInf = [
-    {
-      flightId: 1,
-      airline: "Air India",
-      flightNum: "AI-203",
-      origin: "New Delhi",
-      destination: "Mumbai",
-      date: "2024-12-15",
-      time: "10:30",
-      seats: 150,
-      price: 120,
-    },
-    {
-      flightId: 2,
-      airline: "British Airways",
-      flightNum: "BA-456",
-      origin: "London Heathrow",
-      destination: "New York JFK",
-      date: "2024-12-20",
-      time: "14:45",
-      seats: 200,
-      price: 750,
-    },
-    {
-      flightId: 3,
-      airline: "Emirates",
-      flightNum: "EK-789",
-      origin: "Dubai",
-      destination: "Singapore",
-      date: "2024-12-18",
-      time: "06:15",
-      seats: 180,
-      price: 950,
-    },
-    {
-      flightId: 4,
-      airline: "United Airlines",
-      flightNum: "UA-112",
-      origin: "San Francisco",
-      destination: "Los Angeles",
-      date: "2024-12-22",
-      time: "09:00",
-      seats: 130,
-      price: 220,
-    },
-    {
-      flightId: 5,
-      airline: "Lufthansa",
-      flightNum: "LH-330",
-      origin: "Frankfurt",
-      destination: "Tokyo Narita",
-      date: "2024-12-25",
-      time: "20:30",
-      seats: 250,
-      price: 1100,
-    },
-  ];
 
   return (
     <div
@@ -106,7 +49,7 @@ const AdminFlightManagement = () => {
                 <th>Date</th>
                 <th>Time</th>
                 <th>Available Seats</th>
-                <th>Ticket Price(USD)</th>
+                <th>Ticket Price(USD )</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
