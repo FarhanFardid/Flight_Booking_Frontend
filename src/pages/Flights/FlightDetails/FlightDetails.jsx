@@ -17,6 +17,10 @@ const FlightDetails = () => {
     availableSeats,
     airline,
   } = flightDetails;
+  const formatDate = (date) => {
+    const modDate = new Date(date);
+    return modDate.toISOString().split("T")[0];
+  };
   return (
     <>
       <div
@@ -39,13 +43,12 @@ const FlightDetails = () => {
             <table className="table">
               <thead>
                 <tr className="text-center font-bold text-black md:text-base">
-                  <th>Flight Id.</th>
                   <th>Airline Company</th>
                   <th>Flight No.</th>
                   <th>Origin</th>
                   <th>Destination</th>
-                  <th className="w-16">Date</th>
-                  <th>Departure Time</th>
+                  <th >Date</th>
+                  <th>Departure Time (24h)</th>
                   <th>Ticket Price</th>
                   <th>Available Seats</th>
                   <th>Book Now</th>
@@ -53,14 +56,11 @@ const FlightDetails = () => {
               </thead>
               <tbody className="text-center font-medium">
                 <tr className="font-semibold text-black">
-                  <td>
-                    <div className="font-semibold">{_id}</div>
-                  </td>
                   <td>{airline}</td>
                   <td>{flightNumber}</td>
                   <td>{origin}</td>
                   <td>{destination}</td>
-                  <td>{date}</td>
+                  <td>{formatDate(date)}</td>
                   <td>{time}</td>
                   <td>{price}</td>
                   <td>{availableSeats}</td>

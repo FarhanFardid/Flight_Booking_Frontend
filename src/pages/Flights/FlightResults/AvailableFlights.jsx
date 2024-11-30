@@ -41,7 +41,6 @@ const AvailableFlights = () => {
               <thead>
                 <tr className="text-center font-bold text-black md:text-base">
                   <th>Sl No.</th>
-                  <th>Flight Id.</th>
                   <th>Airline Company</th>
                   <th>Flight No.</th>
                   <th>Origin</th>
