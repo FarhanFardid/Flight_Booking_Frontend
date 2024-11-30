@@ -3,10 +3,10 @@ import Title from "../../components/Title";
 import backgroundImage from "../../assets/images/planeImg/plane2.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { registerUser } from "./auth";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
   const {
     register,
@@ -14,6 +14,7 @@ const Register = () => {
     reset,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -37,6 +38,7 @@ const Register = () => {
       toast.success("User Registered Successfully");
       console.log(response.message);
       reset();
+      navigate("/login");
     } catch (error) {
       console.log(error.response.data.message);
       toast.error("User Registration Failed");
