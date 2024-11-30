@@ -17,7 +17,7 @@ const AvailableFlightList = ({ flight, index }) => {
       <td>{destination}</td>
       <td>{date}</td>
       <td>
-        <Link to="/">
+        <Link to={`/flightDetails/${_id}`}>
           <button
             onClick={() => console.log(_id)}
             className="btn-xs btn-circle bg-blue-600 text-white hover:bg-blue-900"
