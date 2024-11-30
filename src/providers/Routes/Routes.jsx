@@ -18,6 +18,7 @@ import AdminAddFlight from "../../pages/DashboardPages/AdminDashboard/AdminAddFl
 import AdminFlightUpdate from "../../pages/DashboardPages/AdminDashboard/AdminFlightUpdate";
 import AdminFlightManagement from "../../pages/DashboardPages/AdminDashboard/AdminFlightManagement";
 import ProtectedRoute from "./ProtectedRoute";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   // Basic Routes without Authentication
@@ -90,19 +91,35 @@ const router = createBrowserRouter([
       },
       {
         path: "adminBookingManagement",
-        element: <AdminBookingManagement></AdminBookingManagement>,
+        element: (
+          <AdminRoute>
+            <AdminBookingManagement></AdminBookingManagement>
+          </AdminRoute>
+        ),
       },
       {
         path: "adminAddFlight",
-        element: <AdminAddFlight></AdminAddFlight>,
+        element: (
+          <AdminRoute>
+            <AdminAddFlight></AdminAddFlight>
+          </AdminRoute>
+        ),
       },
       {
         path: "adminFlightManagement",
-        element: <AdminFlightManagement></AdminFlightManagement>,
+        element: (
+          <AdminRoute>
+            <AdminFlightManagement></AdminFlightManagement>
+          </AdminRoute>
+        ),
       },
       {
         path: "adminFlightUpdate",
-        element: <AdminFlightUpdate></AdminFlightUpdate>,
+        element: (
+          <AdminRoute>
+            <AdminFlightUpdate></AdminFlightUpdate>
+          </AdminRoute>
+        ),
       },
     ],
   },

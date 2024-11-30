@@ -5,7 +5,7 @@ import { useContext } from "react";
 // import useAdmin from "../Hooks/useAdmin";
 
 const NavLinks = () => {
-  const { user, logout, loading } = useContext(AuthContext);
+  const { user} = useContext(AuthContext);
   console.log(user);
   return (
     <Navbar fluid className="bg-black">

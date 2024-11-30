@@ -7,13 +7,14 @@ import {
   MdInfo,
   MdOutlineAirplaneTicket,
 } from "react-icons/md";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink, Outlet } from "react-router";
 import Footer from "../Shared/Footer";
 import { FaAddressBook } from "react-icons/fa6";
+import { AuthContext } from "../providers/AuthProvider/AuthContext";
 const Dashboard = () => {
-  const isAdmin = true;
-  const [isOpen, setIsOpen] = useState(false);
+  const { user } = useContext(AuthContext);
+  // const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       <Navigation></Navigation>
@@ -41,7 +42,7 @@ const Dashboard = () => {
                 QuickFly
               </h2>
             </div>
-            {isAdmin ? (
+            {user?.role === "Admin" ? (
               <>
                 <h3 className="text-lg md:text-xl font-medium text-center pt-3 md:pt-7 text-white">
                   Admin DashBoard
