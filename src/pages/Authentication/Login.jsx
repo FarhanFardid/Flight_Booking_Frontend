@@ -37,8 +37,7 @@ const Login = () => {
         const decodedToken = JSON.parse(atob(response.token.split(".")[1]));
         setUser({ id: decodedToken.id, role: decodedToken.role });
       }
-
-      console.log(user);
+      // console.log(user);
       setLoading(false);
       // Store token in localStorage
       localStorage.setItem("token", response.token);

@@ -6,7 +6,7 @@ const AdminRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
   const location = useLocation();
 
-  console.log("I am Admin:", user);
+  // console.log("I am Admin:", user);
   if (user && user?.role === "Admin") {
     return children;
   } else {
