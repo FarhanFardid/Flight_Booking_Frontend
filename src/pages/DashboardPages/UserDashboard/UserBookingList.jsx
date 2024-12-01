@@ -19,7 +19,9 @@ const UserBookingList = ({ booking, index }) => {
       <td>
         <button
           onClick={() => {
-            alert("This Function is under development");
+            alert(
+              "This Button is not functional yet. Development Ongoing. Please be patience."
+            );
           }}
           className="btn-xs btn-circle bg-red-700 text-white hover:bg-red-900"
         >

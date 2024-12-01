@@ -22,7 +22,7 @@ const UserProfile = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [userId]);
   return (
     <div
       className="bg-no-repeat bg-center bg-cover p-2 md:p-8 max-h-full md:h-full"
@@ -39,14 +39,18 @@ const UserProfile = () => {
           <div className="w-full">
             <div className="details bg-white bg-opacity-50 text-black p-3 md:p-6 rounded-md">
               <h2 className="text-xs md:text-sm font-medium pb-1 md:pb-2 ">
-                User Id: {userDetails._id}
+                <strong>User Id: </strong> {userDetails._id}
               </h2>
-              <h2 className="text-base md:text-xl font-bold py-2 md:py-3 ">
-                User Name: {userDetails.username}
+              <h2 className="text-base md:text-lg font-bold py-2 md:py-3 ">
+                <strong>User Name: </strong> {userDetails.username}
               </h2>
               <p className="font-medium pb-2 text-xs md:text-sm">
                 <strong>Email:</strong>{" "}
                 <span id="display-email">{userDetails.email}</span>
+              </p>
+              <p className="font-medium pb-2 text-xs md:text-sm">
+                <strong>Role:</strong>{" "}
+                <span id="display-role">{userDetails.role}</span>
               </p>
             </div>
           </div>
