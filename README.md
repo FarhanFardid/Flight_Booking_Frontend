@@ -2,6 +2,14 @@
 
 ### Welcome to Quick Fly, an online platform designed to simplify flight bookings for users and streamline flight management for administrators. This document outlines the project's features, usage instructions, and technology stack.
 
+### Live Project URL - https://quickfly-ticket-booking.netlify.app/
+
+### Live Server URL - https://flight-booking-backend-red.vercel.app/api/flights
+
+### Frontend Repository - https://github.com/FarhanFardid/Flight_Booking_Frontend
+
+### Backend Repository - https://github.com/FarhanFardid/Flight_Booking_Backend
+
 # 📌 Project Overview
 
 Quick Fly allows users to browse flights without authentication, register or log in to book flights, and manage their profiles. Admins can manage flights and user bookings through an interactive dashboard.
