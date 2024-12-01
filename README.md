@@ -28,6 +28,33 @@ Quick Fly allows users to browse flights without authentication, register or log
 ![adminDash3](https://github.com/user-attachments/assets/6adf8a83-ce94-43e0-aa79-bef34dc0e8c7)
 ![adminDash4](https://github.com/user-attachments/assets/2e0449a4-aff6-41e7-a5c3-1ceb636bf6e1)
 
+Smaller Device view:
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cc21fa3c-7b77-46db-bfd7-3a209a6d6464" alt="Image 1" width="300">
+  <img src="https://github.com/user-attachments/assets/c68a39b8-61c8-443d-a221-3af44839a8ec" alt="Image 2" width="300">
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/50d5d54f-e7d1-4237-ad61-be6995ef663e" alt="Image 1" width="300">
+  <img src="https://github.com/user-attachments/assets/5c007f0c-e417-4b01-9bb7-84eb7f6b6512" alt="Image 2" width="300">
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/bd1d8bdd-2ee7-46c6-bf87-78a2d59d6788" alt="Image 1" width="300">
+  <img src="https://github.com/user-attachments/assets/53f9f65b-25b3-4113-afed-e09c7c35bda0" alt="Image 2" width="300">
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/34735910-2413-41aa-9741-361fa215457d" alt="Image 1" width="300">
+  <img src="https://github.com/user-attachments/assets/4650e7f2-750b-4be2-8e7d-4c4b6f142bd9" alt="Image 2" width="300">
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/34735910-2413-41aa-9741-361fa215457d" alt="Image 1" width="300">
+  <img src="https://github.com/user-attachments/assets/1f2fea42-b8be-408a-81ca-092c3f0c8947" alt="Image 2" width="300">
+</p>
+
+
+
+
+
+
 ## 🚀 Features
 
 ### 🔍 User Features:
