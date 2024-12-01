@@ -146,7 +146,7 @@ Complete password update functionality.
 - cd Flight_Booking_Backend
 - nodemon index.js
 
-  -Frontend:
+- Frontend:
 - cd Flight_Booking_Frontend
 - npm run dev
 
