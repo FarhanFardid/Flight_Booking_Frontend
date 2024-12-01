@@ -1,7 +1,11 @@
 import { FaThumbsUp } from "react-icons/fa";
 import { MdCancel, MdDelete } from "react-icons/md";
-import { deleteBooking } from "../../../AxiosSecure/bookingServices";
+import {
+  deleteBooking,
+  updateBooking,
+} from "../../../AxiosSecure/bookingServices";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
   const {
@@ -14,6 +18,44 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
     createdAt,
   } = booking;
 
+  const handleBookingConfirm = async (id) => {
+    const confirmApprove = window.confirm(
+      "Are you sure you want to Confirm this Booking?"
+    );
+    if (confirmApprove) {
+      const updatedBookingInfo = { bookingStatus: "Confirmed" };
+      try {
+        const response = await updateBooking(id, updatedBookingInfo);
+        toast.success("Booking is Confirmed");
+        console.log("Response:", response);
+        triggerRefetch();
+      } catch (err) {
+        console.error("Error details:", err.response?.data || err.message);
+        toast.error("Booking Confirmation Failed");
+      }
+    } else {
+      console.log("Confirmation canceled.");
+    }
+  };
+  const handleBookingCancel = async (id) => {
+    const confirmCancel = window.confirm(
+      "Are you sure you want to Cancel this Booking?"
+    );
+    if (confirmCancel) {
+      const updatedBookingInfo = { bookingStatus: "Cancelled" };
+      try {
+        const response = await updateBooking(id, updatedBookingInfo);
+        toast.success("Booking is Cancelled");
+        console.log("Response:", response);
+        triggerRefetch();
+      } catch (err) {
+        console.error("Error details:", err.response?.data || err.message);
+        toast.error("Booking Cancellation Failed");
+      }
+    } else {
+      console.log("Cancellation avoided.");
+    }
+  };
   const handleBookingDelete = async (id) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this booking?"
@@ -26,7 +68,7 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
         triggerRefetch();
       } catch (err) {
         console.error("Error details:", err.response?.data || err.message);
-        toast.error("Flight Deletion Failed");
+        toast.error("Booking Deletion Failed");
       }
     } else {
       console.log("Deletion canceled.");
@@ -48,7 +90,9 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
       <td>{bookingStatus}</td>
       <td>
         <button
-          onClick={() => console.log(_id)}
+          onClick={() => {
+            handleBookingConfirm(_id);
+          }}
           className="btn-xs btn-circle bg-blue-600 text-white hover:bg-blue-900"
         >
           {" "}
@@ -57,7 +101,9 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
       </td>
       <td>
         <button
-          onClick={() => console.log(_id)}
+          onClick={() => {
+            handleBookingCancel(_id);
+          }}
           className="btn-xs btn-circle bg-red-500 text-white hover:bg-orange-900"
         >
           {" "}

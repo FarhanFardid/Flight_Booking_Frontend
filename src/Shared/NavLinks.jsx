@@ -25,13 +25,13 @@ const NavLinks = () => {
         >
           Available Flights & Booking
         </Navbar.Link>
-        <Navbar.Link
+        {/* <Navbar.Link
           as={Link}
           to="/flightResults"
           className="font-bold text-blue-500 text-xs md:text-base"
         >
           Searched Flights
-        </Navbar.Link>
+        </Navbar.Link> */}
         <Navbar.Link
           as={Link}
           to="/about"
