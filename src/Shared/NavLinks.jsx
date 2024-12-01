@@ -9,40 +9,40 @@ const NavLinks = () => {
 
   console.log(user);
   return (
-    <Navbar fluid className="bg-black">
+    <Navbar fluid className="bg-blue-950 ">
       <Navbar.Collapse>
         <Navbar.Link
           as={Link}
           to="/"
-          className="font-bold text-blue-500 text-xs md:text-base"
+          className="font-bold text-white text-xs md:text-base"
         >
           Home
         </Navbar.Link>
         <Navbar.Link
           as={Link}
           to="/availableFlights"
-          className="font-bold text-blue-500 text-xs md:text-base"
+          className="font-bold text-white text-xs md:text-base"
         >
           Available Flights & Booking
         </Navbar.Link>
         {/* <Navbar.Link
           as={Link}
           to="/flightResults"
-          className="font-bold text-blue-500 text-xs md:text-base"
+          className="font-bold text-white text-xs md:text-base"
         >
           Searched Flights
         </Navbar.Link> */}
         <Navbar.Link
           as={Link}
           to="/about"
-          className="font-bold text-blue-500 text-xs md:text-base"
+          className="font-bold text-white text-xs md:text-base"
         >
           About Us
         </Navbar.Link>
         <Navbar.Link
           as={Link}
           to="/contact"
-          className="font-bold text-blue-500 text-xs md:text-base"
+          className="font-bold text-white text-xs md:text-base"
         >
           Contact Us
         </Navbar.Link>

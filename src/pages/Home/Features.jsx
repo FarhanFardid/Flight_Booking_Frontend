@@ -46,7 +46,7 @@ const Features = () => {
     },
   ];
   return (
-    <div className="mx-auto md:p-12">
+    <div className="max-w-screen-2xl mx-auto md:p-7">
       <div className="py-6 md:py-12">
         <Title
           main="Explore Our Top Features"
