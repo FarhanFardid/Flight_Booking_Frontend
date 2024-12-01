@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider/AuthContext";
 import { getUserInfo } from "../../Authentication/auth";
 import { toast } from "react-toastify";
+import FlightDetails from "../FlightDetails/FlightDetails";
 
 const FlightBooking = () => {
   const { user } = useContext(AuthContext);
@@ -47,47 +48,22 @@ const FlightBooking = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const userDetail = {
-    userId: 101,
-    userEmail: "user1@gmail.com",
-  };
-  const flightDetail = {
-    flight_id: 1,
-    flight_number: "AI-203",
-    airline: "Air India",
-    origin: "New Delhi, India",
-    destination: "London, UK",
-    date: "2024-12-15",
-    flight_time: "10:30 AM",
-    duration: "9h 30m",
-    price: 750,
-    available_seats: 45,
-  };
   const onSubmit = (data) => {
-    const userId = data.userId;
-    const email = data.userEmail;
-    const flightId = data.flightId;
-    const flightNo = data.flightNo;
-    const seats = data.seats;
-
     // console.log(data);
+    const userId = userDetails._id;
+    const flightId = flightDetails._id;
+    const flightNo = flightNumber;
+    const numberOfSeats = data.seats;
+    const totalPrice = numberOfSeats * price;
+
     const bookingInfo = {
       userId,
-      email,
       flightId,
-      flightNo,
-      seats,
+      numberOfSeats,
+      totalPrice,
+      bookingStatus: "Pending",
     };
-    const bookingDetails = {
-      userId,
-      userEmail,
-      flightId,
-      flightNo,
-      seats,
-      price: "",
-      status: "Confirmed",
-    };
-    // console.log(bookingDetails);
+    console.log(bookingInfo);
   };
   return (
     <>
@@ -113,15 +89,15 @@ const FlightBooking = () => {
                 className="text-sm md:text-lg font-medium"
               >
                 <label>
-                  <p className="mb-2">User Id:</p>
+                  <p className="mb-2">User Name:</p>
                   <div className="h-[2.5rem]">
                     <input
                       className="w-[20rem] md:w-[28rem] mb-2 text-black rounded-lg"
                       type="text"
-                      name="userId"
-                      placeholder="Enter user Id"
+                      name="userName"
+                      placeholder="Enter user name"
                       readOnly
-                      value={userId}
+                      value={userDetails.username}
                     />
                   </div>
                 </label>
@@ -135,7 +111,7 @@ const FlightBooking = () => {
                       name="userEmail"
                       placeholder="Enter your email"
                       readOnly
-                      value={userDetail.userEmail}
+                      value={userDetails.email}
                     />
                   </div>
                 </label>
