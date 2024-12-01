@@ -20,3 +20,8 @@ export const getUserInfo = async (id) => {
   const response = await axios.get(`${apiUrl}/user/${id}`);
   return response.data;
 };
+// Update User Details
+export const updateUserInfo = async (id, userData) => {
+  const response = await axios.get(`${apiUrl}/user/${id}`, userData);
+  return response.data;
+};
