@@ -35,17 +35,16 @@ const UserProfileManagement = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    // console.log(data);
     const userId = data.userId;
     const email = data.email;
     const username = data.username;
 
-    // console.log(data);
-    const profileInfo = {
-      userId,
-      email,
+    const updatedInfo = {
       username,
+      email,
     };
-    // console.log(profileInfo);
+    console.log(updatedInfo);
   };
   return (
     <div
