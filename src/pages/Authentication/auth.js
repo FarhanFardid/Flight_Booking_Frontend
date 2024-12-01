@@ -1,7 +1,10 @@
 import axios from "axios";
 
-// localhost url
-const apiUrl = "http://localhost:3000/api/auth";
+// // localhost url
+// const apiUrl = "http://localhost:3000/api/auth";
+
+// vercel hosting  url
+const apiUrl = "https://flight-booking-backend-red.vercel.app/api/auth";
 
 // Reg new user
 export const registerUser = async (userData) => {
