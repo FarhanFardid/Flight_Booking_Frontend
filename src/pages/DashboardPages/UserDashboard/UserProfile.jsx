@@ -18,7 +18,7 @@ const UserProfile = () => {
         setUserDetails(response);
       } catch (err) {
         console.error("Error details:", err.response?.data || err.message);
-        toast.error("Flights Data Load Failed");
+        toast.error("Profile Data Load Failed");
       }
     };
     fetchData();

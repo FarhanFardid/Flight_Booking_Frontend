@@ -1,29 +1,49 @@
 import { useForm } from "react-hook-form";
 import backgroundImage from "../../../assets/images/planeImg/plane1.jpg";
 import Title from "../../../components/Title";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../providers/AuthProvider/AuthContext";
+import { getUserInfo } from "../../Authentication/auth";
 
 const UserProfileManagement = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+  const userId = user?.id;
+  console.log(userId);
+  const [userDetail, setUserDetail] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getUserInfo(userId);
+        setUserDetail(response);
+      } catch (err) {
+        console.error(
+          "Error fetching bookings:",
+          err.response?.data || err.message
+        );
+      }
+    };
+
+    fetchData();
+  }, [userId]);
+  console.log(userDetail);
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const userDetails = {
-    userId: 101,
-    userName: "User1",
-    userEmail: "user1@gmail.com",
-  };
+
   const onSubmit = (data) => {
     const userId = data.userId;
-    const email = data.userEmail;
-    const userName = data.userName;
+    const email = data.email;
+    const username = data.username;
 
     // console.log(data);
     const profileInfo = {
       userId,
       email,
-      userName,
+      username,
     };
     // console.log(profileInfo);
   };
@@ -49,18 +69,32 @@ const UserProfileManagement = () => {
               className="text-sm md:text-lg font-medium"
             >
               <label>
+                <p className="mb-2">User Id (Not Changeable)</p>
+                <div className="h-[2.5rem]">
+                  <input
+                    className="w-[20rem] md:w-[28rem] mb-2 text-black rounded-lg"
+                    type="text"
+                    name="userId"
+                    placeholder="Enter User Id"
+                    readOnly
+                    defaultValue={userDetail._id}
+                  />
+                </div>
+              </label>
+              <br />
+              <label>
                 <p className="mb-2">User Name:</p>
                 <div className="h-[2.5rem]">
                   <input
                     className="w-[20rem] md:w-[28rem] mb-2 text-black rounded-lg"
                     type="text"
-                    name="userName"
+                    name="username"
                     placeholder="Enter your name"
-                    defaultValue={userDetails.userName}
+                    defaultValue={userDetail.username}
                     required
-                    {...register("userName", { required: true })}
+                    {...register("username", { required: true })}
                   />
-                  {errors.userName && (
+                  {errors.username && (
                     <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
                       Warning: Name field is required
                     </span>
@@ -69,30 +103,20 @@ const UserProfileManagement = () => {
               </label>
               <br />
               <label>
-                <p className="mb-2">User Id (Not Changeable)</p>
-                <div className="h-[2.5rem]">
-                  <input
-                    className="w-[20rem] md:w-[28rem] mb-2 text-black rounded-lg"
-                    type="text"
-                    name="userId"
-                    placeholder="Enter user Id"
-                    readOnly
-                    value={userDetails.userId}
-                  />
-                </div>
-              </label>
-              <br />
-              <label>
-                <p className="mb-2">User Email (Not Changeable)</p>
+                <p className="mb-2">User Email</p>
                 <div className="h-[2.5rem]">
                   <input
                     className="w-[20rem] md:w-[28rem] mb-2 text-black rounded-lg"
                     type="email"
-                    name="userEmail"
+                    name="email"
                     placeholder="Enter your email"
-                    readOnly
-                    value={userDetails.userEmail}
+                    value={userDetail.email}
                   />
+                  {errors.email && (
+                    <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
+                      Warning: Email field is required
+                    </span>
+                  )}
                 </div>
               </label>
               <br />
