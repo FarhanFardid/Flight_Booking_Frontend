@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider/AuthContext";
 import { getUserInfo } from "../../Authentication/auth";
 import { toast } from "react-toastify";
-import FlightDetails from "../FlightDetails/FlightDetails";
+import { createBooking } from "../../../AxiosSecure/bookingServices";
 
 const FlightBooking = () => {
   const { user } = useContext(AuthContext);
@@ -48,7 +48,7 @@ const FlightBooking = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     // console.log(data);
     const userId = userDetails._id;
     const flightId = flightDetails._id;
@@ -64,6 +64,16 @@ const FlightBooking = () => {
       bookingStatus: "Pending",
     };
     console.log(bookingInfo);
+    try {
+      const response = await createBooking(bookingInfo);
+      toast.success("New Booking Added Successfully");
+      console.log("Response:", response);
+      // reset();
+      // navigate("/dashboard/adminFlightManagement");
+    } catch (err) {
+      console.error("Error details:", err.response?.data || err.message);
+      toast.error("Booking Add Failed");
+    }
   };
   return (
     <>
