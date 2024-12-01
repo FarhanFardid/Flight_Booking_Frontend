@@ -142,15 +142,15 @@ Complete password update functionality.
 
 4. Run the Application: (Open Command Line)
 
- 1. Backend
+- Backend
 
- - cd Flight_Booking_Backend
- - nodemon index.js
+- cd Flight_Booking_Backend
+- nodemon index.js
 
- 2. Frontend
+- Frontend
 
- - cd Flight_Booking_Frontend
- - npm run dev
+- cd Flight_Booking_Frontend
+- npm run dev
 
 ### 🌟 Enjoy Your Flight Booking Experience with Quick Fly! 🌟
 
