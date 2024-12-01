@@ -28,7 +28,7 @@ const NewsLetter = () => {
           />
           <button
             type="button"
-            className="bg-blue-700 hover:bg-blue-500 text-white font-bold  text-xs md:text-sm px-3 md:px-7  py-1.5 md:py-4 rounded-md btn-xs "
+            className="bg-blue-800 hover:bg-black text-white font-bold  text-xs  px-3 md:px-5  py-1.5 md:py-4 rounded-md "
           >
             Send
           </button>
