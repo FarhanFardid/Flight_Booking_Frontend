@@ -22,6 +22,6 @@ export const getUserInfo = async (id) => {
 };
 // Update User Details
 export const updateUserInfo = async (id, userData) => {
-  const response = await axios.get(`${apiUrl}/user/${id}`, userData);
+  const response = await axios.put(`${apiUrl}/user/${id}`, userData);
   return response.data;
 };

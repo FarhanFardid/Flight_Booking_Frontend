@@ -3,14 +3,23 @@ import backgroundImage from "../../../assets/images/planeImg/plane1.jpg";
 import Title from "../../../components/Title";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider/AuthContext";
-import { getUserInfo } from "../../Authentication/auth";
+import { getUserInfo, updateUserInfo } from "../../Authentication/auth";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const UserProfileManagement = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
+  const navigate = useNavigate();
   const userId = user?.id;
   console.log(userId);
   const [userDetail, setUserDetail] = useState([]);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,24 +36,27 @@ const UserProfileManagement = () => {
     fetchData();
   }, [userId]);
   console.log(userDetail);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     // console.log(data);
-    const userId = data.userId;
     const email = data.email;
     const username = data.username;
 
-    const updatedInfo = {
+    const updatedUserInfo = {
       username,
       email,
     };
-    console.log(updatedInfo);
+    console.log(updatedUserInfo);
+    console.log(userId, updateUserInfo);
+    try {
+      const response = await updateUserInfo(userId, updatedUserInfo);
+      toast.success("User Data Updated Successfully");
+      console.log("Response:", response);
+      navigate("/dashboard/userProfile");
+    } catch (err) {
+      console.error("Error details:", err.response?.data || err.message);
+      toast.error("User Data Update Failed");
+    }
   };
   return (
     <div
@@ -89,8 +101,8 @@ const UserProfileManagement = () => {
                     type="text"
                     name="username"
                     placeholder="Enter your name"
-                    defaultValue={userDetail.username}
                     required
+                    defaultValue={userDetail.username}
                     {...register("username", { required: true })}
                   />
                   {errors.username && (
@@ -109,7 +121,9 @@ const UserProfileManagement = () => {
                     type="email"
                     name="email"
                     placeholder="Enter your email"
-                    value={userDetail.email}
+                    required
+                    defaultValue={userDetail.email}
+                    {...register("email", { required: true })}
                   />
                   {errors.email && (
                     <span className="text-red-700 text-xs block bg-white ps-2 pt-1">
