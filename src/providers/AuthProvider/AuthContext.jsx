@@ -2,15 +2,13 @@ import React, { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
-// Create a provider component
+// Auth provider compo
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check if the user is logged in on app load
   useEffect(() => {
     const token = localStorage.getItem("token");
-
     if (token) {
       // decoding token
       const decodedToken = JSON.parse(atob(token.split(".")[1]));
@@ -21,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   // Logout function
   const logout = () => {
-    localStorage.removeItem("token"); // Remove token from localStorage
+    localStorage.removeItem("token");
     setUser(null); // Clear user state
     setLoading(false);
   };
