@@ -142,13 +142,11 @@ Complete password update functionality.
 
 4. Run the Application: (Open Command Line)
 
-- Backend
-
+- Backend:
 - cd Flight_Booking_Backend
 - nodemon index.js
 
-- Frontend
-
+  -Frontend:
 - cd Flight_Booking_Frontend
 - npm run dev
 
