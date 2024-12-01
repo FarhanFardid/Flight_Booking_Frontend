@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 // localhost url
-const apiUrl = 'http://localhost:3000/api/auth';
+const apiUrl = "http://localhost:3000/api/auth";
 
 // Reg new user
 export const registerUser = async (userData) => {
@@ -12,5 +12,11 @@ export const registerUser = async (userData) => {
 // User login
 export const loginUser = async (userData) => {
   const response = await axios.post(`${apiUrl}/login`, userData);
+  return response.data;
+};
+
+// Get User Details
+export const getUserInfo = async (id) => {
+  const response = await axios.get(`${apiUrl}/user/${id}`);
   return response.data;
 };

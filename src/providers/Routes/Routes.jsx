@@ -67,12 +67,19 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "flightBooking",
+        path: "flightBooking/:id",
         element: (
           <ProtectedRoute>
             <FlightBooking></FlightBooking>
           </ProtectedRoute>
         ),
+        loader: async ({ params }) => {
+          const response = await getFlightById(params.id);
+          if (!response) {
+            throw new Error("Failed to load product data");
+          }
+          return response;
+        },
       },
     ],
   },

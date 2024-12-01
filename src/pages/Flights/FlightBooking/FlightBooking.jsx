@@ -1,19 +1,57 @@
 import { useForm } from "react-hook-form";
 import Title from "../../../components/Title";
 import backgroundImage from "../../../assets/images/planeImg/bookingImg.jpg";
+import { useLoaderData } from "react-router";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../providers/AuthProvider/AuthContext";
+import { getUserInfo } from "../../Authentication/auth";
+import { toast } from "react-toastify";
 
 const FlightBooking = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
+  const userId = user?.id;
+  console.log(userId);
+  const flightDetails = useLoaderData();
+  console.log(flightDetails);
+  const [userDetails, setUserDetails] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getUserInfo(userId);
+        console.log("Response:", response);
+        setUserDetails(response);
+      } catch (err) {
+        console.error("Error details:", err.response?.data || err.message);
+        toast.error("Flights Data Load Failed");
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(userDetails);
+  const {
+    _id,
+    flightNumber,
+    origin,
+    destination,
+    time,
+    date,
+    price,
+    availableSeats,
+    airline,
+  } = flightDetails;
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const userDetails = {
+  const userDetail = {
     userId: 101,
     userEmail: "user1@gmail.com",
   };
-  const flightDetails = {
+  const flightDetail = {
     flight_id: 1,
     flight_number: "AI-203",
     airline: "Air India",
@@ -83,7 +121,7 @@ const FlightBooking = () => {
                       name="userId"
                       placeholder="Enter user Id"
                       readOnly
-                      value={userDetails.userId}
+                      value={userId}
                     />
                   </div>
                 </label>
@@ -97,7 +135,7 @@ const FlightBooking = () => {
                       name="userEmail"
                       placeholder="Enter your email"
                       readOnly
-                      value={userDetails.userEmail}
+                      value={userDetail.userEmail}
                     />
                   </div>
                 </label>
@@ -111,7 +149,7 @@ const FlightBooking = () => {
                       name="flightId"
                       placeholder="Enter flight Id"
                       readOnly
-                      value={flightDetails.flight_id}
+                      value={_id}
                     />
                   </div>
                 </label>
@@ -125,19 +163,20 @@ const FlightBooking = () => {
                       name="flightNo"
                       placeholder="Enter flight No."
                       readOnly
-                      value={flightDetails.flight_number}
+                      value={flightNumber}
                     />
                   </div>
                 </label>
                 <br />
                 <label>
-                  <p className="mb-2">Number of Seats :</p>
+                  <p className="mb-2">Number of Seats : [1-5]</p>
                   <div className="h-[2.5rem]">
                     <input
                       className="w-[20rem] md:w-[28rem] mb-2 text-black rounded-lg"
                       type="number"
                       name="seats"
                       min={1}
+                      max={5}
                       placeholder="Enter No. of seats."
                       {...register("seats", { required: true })}
                     />

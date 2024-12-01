@@ -47,7 +47,7 @@ const FlightDetails = () => {
                   <th>Flight No.</th>
                   <th>Origin</th>
                   <th>Destination</th>
-                  <th >Date</th>
+                  <th>Date</th>
                   <th>Departure Time (24h)</th>
                   <th>Ticket Price</th>
                   <th>Available Seats</th>
@@ -65,7 +65,7 @@ const FlightDetails = () => {
                   <td>{price}</td>
                   <td>{availableSeats}</td>
                   <td>
-                    <Link to="/flightBooking">
+                    <Link to={`/flightBooking/${_id} `}>
                       <button
                         onClick={() => console.log(id)}
                         className="btn-md btn-circle bg-blue-600 text-white hover:bg-blue-900 hover:scale-110"

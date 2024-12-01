@@ -25,7 +25,7 @@ const AvailableFlights = () => {
         className="bg-no-repeat bg-center bg-cover p-2 md:p-8 max-h-full md:h-full"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
-        <div className="pt-8 md:pt-16 bg-black bg-opacity-20 text-white">
+        <div className="pt-8 md:pt-16 bg-white bg-opacity-40 text-black">
           <Title
             main="Find Your Perfect Flight"
             sub="Compare and choose the flight that suits your schedule and budget."
@@ -34,8 +34,8 @@ const AvailableFlights = () => {
         <div className="w-full  mx-auto p-3 md:p-4 my-5 md:my-8  bg-white bg-opacity-40 rounded-lg shadow-lg">
           {/* Table starts */}
           <div className="overflow-x-auto">
-            <h1 className="text-center text-blue-600 font-semibold text-lg md:text-4xl py-3 md:py-5">
-              Flights List
+            <h1 className="text-center text-blue-950 font-semibold text-lg md:text-4xl py-3 md:py-5">
+              Available Flights for Booking
             </h1>
             <table className="table">
               <thead>
@@ -46,7 +46,7 @@ const AvailableFlights = () => {
                   <th>Origin</th>
                   <th>Destination</th>
                   <th>Date</th>
-                  <th>View Details</th>
+                  <th>Details & Booking</th>
                 </tr>
               </thead>
               <tbody className="text-center font-medium">
