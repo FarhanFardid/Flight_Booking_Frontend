@@ -14,6 +14,20 @@
 
 Quick Fly allows users to browse flights without authentication, register or log in to book flights, and manage their profiles. Admins can manage flights and user bookings through an interactive dashboard.
 
+![home](https://github.com/user-attachments/assets/8677a4cc-a051-4da0-8a7a-e0457b4d8ff7)
+![h2](https://github.com/user-attachments/assets/b76c0863-dd48-4124-b7ab-22adc8d6ff1f)
+![AvailableFlight](https://github.com/user-attachments/assets/9e1d377e-b46c-47e8-82b5-66fa1a7124db)
+![flight1](https://github.com/user-attachments/assets/1622dc22-e7db-4e76-aac4-0656003a719c)
+![login](https://github.com/user-attachments/assets/750627eb-f818-4258-921c-43204763b658)
+![flightBooking](https://github.com/user-attachments/assets/e60a929f-4114-4a4f-bf57-a848f8c88403)
+![UserDashbaord](https://github.com/user-attachments/assets/50dc9618-6781-440a-a648-a07fa9e427a2)
+![userDash2](https://github.com/user-attachments/assets/928bae75-275e-48b3-b66a-51b9b6d51195)
+![UserDash3](https://github.com/user-attachments/assets/ecbe5cde-ab0a-45c5-9ca2-2f4cb6b92bd9)
+![adminDash1](https://github.com/user-attachments/assets/1932be7c-41c3-44f0-83af-fbf985ef3104)
+![adminDash2](https://github.com/user-attachments/assets/f5540d15-6665-4e85-96bd-6c9ee80062a3)
+![adminDash3](https://github.com/user-attachments/assets/6adf8a83-ce94-43e0-aa79-bef34dc0e8c7)
+![adminDash4](https://github.com/user-attachments/assets/2e0449a4-aff6-41e7-a5c3-1ceb636bf6e1)
+
 ## 🚀 Features
 
 ### 🔍 User Features:
