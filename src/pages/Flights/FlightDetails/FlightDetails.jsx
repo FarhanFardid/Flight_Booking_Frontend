@@ -42,7 +42,7 @@ const FlightDetails = () => {
             </h1>
             <table className="table">
               <thead>
-                <tr className="text-center font-bold text-black md:text-base">
+                <tr className="text-center font-bold text-black md:text-base text-sm">
                   <th>Airline Company</th>
                   <th>Flight No.</th>
                   <th>Origin</th>
@@ -68,10 +68,10 @@ const FlightDetails = () => {
                     <Link to={`/flightBooking/${_id} `}>
                       <button
                         onClick={() => console.log(id)}
-                        className="btn-md btn-circle bg-blue-600 text-white hover:bg-blue-900 hover:scale-110"
+                        className="btn-sm md:btn-md btn-circle bg-blue-600 text-white hover:bg-blue-900 hover:scale-110"
                       >
                         {" "}
-                        <MdAirplaneTicket className="w-8 h-8 mx-auto font-bold" />
+                        <MdAirplaneTicket className="h-5 w-5 md:w-8 md:h-8 mx-auto font-bold" />
                       </button>
                     </Link>
                   </td>

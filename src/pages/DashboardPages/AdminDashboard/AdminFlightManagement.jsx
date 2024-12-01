@@ -41,8 +41,8 @@ const AdminFlightManagement = () => {
             All Flight List
           </h1>
           <table className="table">
-            <thead>
-              <tr className="text-center font-bold text-black">
+            <thead className="text-center font-bold text-black md:text-base text-sm">
+              <tr>
                 <th>Sl No.</th>
                 <th>Flight Id</th>
                 <th>Airline Company</th>

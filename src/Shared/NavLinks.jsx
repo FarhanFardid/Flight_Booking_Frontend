@@ -9,40 +9,40 @@ const NavLinks = () => {
 
   console.log(user);
   return (
-    <Navbar fluid className="bg-blue-950 ">
+    <Navbar fluid className="bg-gradient-to-r from-black to-indigo-800 ">
       <Navbar.Collapse>
         <Navbar.Link
           as={Link}
           to="/"
-          className="font-semibold text-white text-xs md:text-base"
+          className="font-semibold text-amber-600 md:text-white text-xs md:text-base"
         >
           Home
         </Navbar.Link>
         <Navbar.Link
           as={Link}
           to="/availableFlights"
-          className="font-semibold text-white text-xs md:text-base"
+          className="font-semibold text-amber-600 md:text-white text-xs md:text-base"
         >
           Available Flights & Booking
         </Navbar.Link>
         {/* <Navbar.Link
           as={Link}
           to="/flightResults"
-          className="font-semibold text-white text-xs md:text-base"
+          className="font-semibold text-amber-600 md:text-white text-xs md:text-base"
         >
           Searched Flights
         </Navbar.Link> */}
         <Navbar.Link
           as={Link}
           to="/about"
-          className="font-semibold text-white text-xs md:text-base"
+          className="font-semibold text-amber-600 md:text-white text-xs md:text-base"
         >
           About Us
         </Navbar.Link>
         <Navbar.Link
           as={Link}
           to="/contact"
-          className="font-semibold text-white text-xs md:text-base"
+          className="font-semibold text-amber-600 md:text-white text-xs md:text-base"
         >
           Contact Us
         </Navbar.Link>
@@ -51,7 +51,7 @@ const NavLinks = () => {
             <Navbar.Link
               as={Link}
               to="/dashboard/adminAddFlight"
-              className="font-semibold text-white text-xs md:text-base"
+              className="font-semibold text-amber-600 md:text-white text-xs md:text-base"
             >
               Admin Dashboard
             </Navbar.Link>
@@ -59,7 +59,7 @@ const NavLinks = () => {
             <Navbar.Link
               as={Link}
               to="/dashboard/userProfile"
-              className="font-semibold text-white text-xs md:text-base"
+              className="font-semibold text-amber-600 md:text-white text-xs md:text-base"
             >
               User Dashboard
             </Navbar.Link>

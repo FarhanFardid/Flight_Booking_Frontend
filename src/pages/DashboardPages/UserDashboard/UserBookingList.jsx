@@ -4,7 +4,7 @@ const UserBookingList = ({ booking, index }) => {
   const { _id, flightId, numberOfSeats, totalPrice, bookingStatus, createdAt } =
     booking;
   return (
-    <tr className="font-semibold">
+    <tr className="font-semibold text-black text-center">
       <th>
         <label>{index + 1}.</label>
       </th>
@@ -23,10 +23,10 @@ const UserBookingList = ({ booking, index }) => {
               "This Button is not functional yet. Development Ongoing. Please be patience."
             );
           }}
-          className="btn-xs btn-circle bg-red-700 text-white hover:bg-red-900"
+          className="btn-xs md:btn-sm btn-circle bg-red-700 text-white hover:bg-red-900"
         >
           {" "}
-          <MdCancel className="w-4 h-4 mx-auto font-bold " />
+          <MdCancel className="w-4 h-4  md:h-5 md:w-5 mx-auto font-bold " />
         </button>
       </td>
     </tr>

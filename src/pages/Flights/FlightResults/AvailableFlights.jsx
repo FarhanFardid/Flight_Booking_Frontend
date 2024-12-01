@@ -39,7 +39,7 @@ const AvailableFlights = () => {
             </h1>
             <table className="table">
               <thead>
-                <tr className="text-center font-bold text-black md:text-base">
+                <tr className="text-center font-bold text-black md:text-base text-sm ">
                   <th>Sl No.</th>
                   <th>Airline Company</th>
                   <th>Flight No.</th>

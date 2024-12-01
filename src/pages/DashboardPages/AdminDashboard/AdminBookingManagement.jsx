@@ -45,14 +45,14 @@ const AdminBookingManagement = () => {
           </h1>
           <table className="table">
             <thead>
-              <tr className="text-center font-bold text-black">
+              <tr className="text-center font-bold text-black md:text-base text-sm">
                 <th>Sl No.</th>
                 <th>Booking Id</th>
                 <th>Flight Id</th>
                 <th>User Id.</th>
                 <th>Number of. Seats</th>
                 <th>Total Price (USD)</th>
-                <th>Booking Time</th>
+                <th>Booking</th>
                 <th>Status</th>
                 <th>Confirm</th>
                 <th>Cancel</th>

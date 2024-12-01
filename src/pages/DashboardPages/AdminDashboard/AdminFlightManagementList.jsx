@@ -42,12 +42,12 @@ const AdminFlightManagementList = ({ flight, index, triggerRefetch }) => {
   };
 
   return (
-    <tr className="font-semibold text-black">
+    <tr className="font-semibold text-black text-center">
       <th>
         <label>{index + 1}.</label>
       </th>
       <td>
-        <div className="font-semibold">{_id}</div>
+        <div>{_id}</div>
       </td>
       <td>{airline}</td>
       <td>{flightNumber}</td>
@@ -61,10 +61,10 @@ const AdminFlightManagementList = ({ flight, index, triggerRefetch }) => {
         <Link to={`/dashboard/adminFlightUpdate/${_id}`}>
           <button
             onClick={() => console.log(_id)}
-            className="btn-xs btn-circle bg-blue-600 text-white hover:bg-blue-900"
+            className="btn-xs md:btn-sm btn-circle bg-blue-600 text-white hover:bg-blue-900"
           >
             {" "}
-            <FaArrowCircleUp className="w-4 h-4 mx-auto font-bold" />
+            <FaArrowCircleUp className="h-4 w-4 md:w-5 md:h-5 mx-auto font-bold" />
           </button>
         </Link>
       </td>
@@ -73,10 +73,10 @@ const AdminFlightManagementList = ({ flight, index, triggerRefetch }) => {
           onClick={() => {
             handleFlightDelete(_id);
           }}
-          className="btn-xs btn-circle bg-red-700 text-white hover:bg-red-900"
+          className="btn-xs md:btn-sm btn-circle bg-red-700 text-white hover:bg-red-900"
         >
           {" "}
-          <MdDelete className="w-4 h-4 mx-auto font-bold " />
+          <MdDelete className="h-4 w-4 md:w-5 md:h-5 mx-auto font-bold " />
         </button>
       </td>
     </tr>

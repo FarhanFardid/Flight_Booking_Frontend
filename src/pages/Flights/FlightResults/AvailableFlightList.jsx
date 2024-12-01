@@ -8,7 +8,7 @@ const AvailableFlightList = ({ flight, index }) => {
     return modDate.toISOString().split("T")[0];
   };
   return (
-    <tr className="font-semibold text-black">
+    <tr className="font-semibold text-black text-center">
       <th>
         <label>{index + 1}.</label>
       </th>
@@ -21,10 +21,10 @@ const AvailableFlightList = ({ flight, index }) => {
         <Link to={`/flightDetails/${_id}`}>
           <button
             onClick={() => console.log(_id)}
-            className="btn-xs btn-circle bg-blue-600 text-white hover:bg-blue-900"
+            className="btn-xs md:btn-sm btn-circle bg-blue-600 text-white hover:bg-blue-900"
           >
             {" "}
-            <FaArrowCircleRight className="w-4 h-4 mx-auto font-bold" />
+            <FaArrowCircleRight className="h-4 w-4 md:w-5 md:h-5 mx-auto font-bold" />
           </button>
         </Link>
       </td>

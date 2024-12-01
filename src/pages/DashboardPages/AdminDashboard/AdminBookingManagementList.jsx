@@ -75,12 +75,12 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
     }
   };
   return (
-    <tr className="font-semibold">
+    <tr className="font-semibold text-center text-black">
       <th>
         <label>{index + 1}.</label>
       </th>
       <td>
-        <div className="font-semibold">{_id}</div>
+        <div>{_id}</div>
       </td>
       <td>{flightId}</td>
       <td>{userId}</td>
@@ -93,10 +93,10 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
           onClick={() => {
             handleBookingConfirm(_id);
           }}
-          className="btn-xs btn-circle bg-blue-600 text-white hover:bg-blue-900"
+          className="btn-xs md:btn-sm btn-circle bg-blue-600 text-white hover:bg-blue-900"
         >
           {" "}
-          <FaThumbsUp className="w-4 h-4 mx-auto font-bold" />
+          <FaThumbsUp className="w-4 h-4  md:h-5 md:w-5 mx-auto font-bold" />
         </button>
       </td>
       <td>
@@ -104,10 +104,10 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
           onClick={() => {
             handleBookingCancel(_id);
           }}
-          className="btn-xs btn-circle bg-red-500 text-white hover:bg-orange-900"
+          className="btn-xs md:btn-sm btn-circle bg-red-500 text-white hover:bg-orange-900"
         >
           {" "}
-          <MdCancel className="w-4 h-4 mx-auto font-bold" />
+          <MdCancel className="w-4 h-4  md:h-5 md:w-5 mx-auto font-bold" />
         </button>
       </td>
       <td>
@@ -115,10 +115,10 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
           onClick={() => {
             handleBookingDelete(_id);
           }}
-          className="btn-xs btn-circle bg-red-700 text-white hover:bg-red-900"
+          className="btn-xs md:btn-sm btn-circle bg-red-700 text-white hover:bg-red-900"
         >
           {" "}
-          <MdDelete className="w-4 h-4 mx-auto font-bold " />
+          <MdDelete className="w-4 h-4  md:h-5 md:w-5 mx-auto font-bold " />
         </button>
       </td>
     </tr>

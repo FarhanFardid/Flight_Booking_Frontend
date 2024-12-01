@@ -48,7 +48,7 @@ const UserBooking = () => {
           </h1>
           <table className="table">
             <thead>
-              <tr className="text-center font-bold text-black">
+              <tr className="text-center font-bold text-black md:text-base text-sm">
                 <th>Sl No.</th>
                 <th>Booking Id</th>
                 <th>Flight Id</th>

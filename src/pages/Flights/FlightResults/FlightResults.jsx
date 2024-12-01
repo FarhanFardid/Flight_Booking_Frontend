@@ -64,7 +64,7 @@ const FlightResults = () => {
           </h1>
           <table className="table">
             <thead>
-              <tr className="text-center font-bold text-black md:text-base">
+              <tr className="text-center font-bold text-black md:text-base text-sm">
                 <th>Sl No.</th>
                 <th>Flight Id.</th>
                 <th>Airline Company</th>
