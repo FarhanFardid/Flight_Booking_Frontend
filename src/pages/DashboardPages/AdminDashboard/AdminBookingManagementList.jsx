@@ -1,5 +1,7 @@
 import { FaThumbsUp } from "react-icons/fa";
 import { MdCancel, MdDelete } from "react-icons/md";
+import { deleteBooking } from "../../../AxiosSecure/bookingServices";
+import { toast } from "react-toastify";
 
 const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
   const {
@@ -11,6 +13,25 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
     bookingStatus,
     createdAt,
   } = booking;
+
+  const handleBookingDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this booking?"
+    );
+    if (confirmDelete) {
+      try {
+        const response = await deleteBooking(id);
+        toast.success("Booking Deleted Successfully");
+        console.log("Response:", response);
+        triggerRefetch();
+      } catch (err) {
+        console.error("Error details:", err.response?.data || err.message);
+        toast.error("Flight Deletion Failed");
+      }
+    } else {
+      console.log("Deletion canceled.");
+    }
+  };
   return (
     <tr className="font-semibold">
       <th>
@@ -45,7 +66,9 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
       </td>
       <td>
         <button
-          onClick={() => console.log(_id)}
+          onClick={() => {
+            handleBookingDelete(_id);
+          }}
           className="btn-xs btn-circle bg-red-700 text-white hover:bg-red-900"
         >
           {" "}
