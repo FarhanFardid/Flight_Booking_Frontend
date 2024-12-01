@@ -4,7 +4,6 @@ import Title from "../../../components/Title";
 import UserBookingList from "./UserBookingList";
 import { getUserBookings } from "../../../AxiosSecure/bookingServices";
 import { AuthContext } from "../../../providers/AuthProvider/AuthContext";
-import { toast } from "react-toastify";
 
 const UserBooking = () => {
   const { user } = useContext(AuthContext);
