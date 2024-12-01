@@ -55,6 +55,7 @@ const UserBooking = () => {
                 <th>Flight Id</th>
                 <th>Number of. Seats</th>
                 <th>Total Price (USD)</th>
+                <th>Booking Time</th>
                 <th>Status</th>
                 <th>Cancel</th>
               </tr>

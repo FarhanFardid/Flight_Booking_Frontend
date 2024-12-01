@@ -1,7 +1,8 @@
 import { MdCancel } from "react-icons/md";
 
 const UserBookingList = ({ booking, index }) => {
-  const { _id, flightId, numberOfSeats, totalPrice, bookingStatus } = booking;
+  const { _id, flightId, numberOfSeats, totalPrice, bookingStatus, createdAt } =
+    booking;
   return (
     <tr className="font-semibold">
       <th>
@@ -13,10 +14,13 @@ const UserBookingList = ({ booking, index }) => {
       <td>{flightId}</td>
       <td>{numberOfSeats}</td>
       <td>{totalPrice}</td>
+      <td>{createdAt}</td>
       <td>{bookingStatus}</td>
       <td>
         <button
-          onClick={() => console.log(_id)}
+          onClick={() => {
+            alert("This Function is under development");
+          }}
           className="btn-xs btn-circle bg-red-700 text-white hover:bg-red-900"
         >
           {" "}
