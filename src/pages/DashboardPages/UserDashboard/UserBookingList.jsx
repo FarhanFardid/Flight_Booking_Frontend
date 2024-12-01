@@ -1,20 +1,19 @@
 import { MdCancel } from "react-icons/md";
 
 const UserBookingList = ({ booking, index }) => {
-  const { bookingId, flightId, flightNo, seats, price, status } = booking;
+  const { _id, flightId, numberOfSeats, totalPrice, bookingStatus } = booking;
   return (
     <tr className="font-semibold">
       <th>
         <label>{index + 1}.</label>
       </th>
       <td>
-        <div className="font-semibold">{bookingId}</div>
+        <div className="font-semibold">{_id}</div>
       </td>
       <td>{flightId}</td>
-      <td>{flightNo}</td>
-      <td>{seats}</td>
-      <td>{price}</td>
-      <td>{status}</td>
+      <td>{numberOfSeats}</td>
+      <td>{totalPrice}</td>
+      <td>{bookingStatus}</td>
       <td>
         <button
           onClick={() => console.log(_id)}
