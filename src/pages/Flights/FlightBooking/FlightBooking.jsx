@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Title from "../../../components/Title";
 import backgroundImage from "../../../assets/images/planeImg/bookingImg.jpg";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider/AuthContext";
 import { getUserInfo } from "../../Authentication/auth";
@@ -15,6 +15,7 @@ const FlightBooking = () => {
   console.log(userId);
   const flightDetails = useLoaderData();
   console.log(flightDetails);
+  const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -68,8 +69,8 @@ const FlightBooking = () => {
       const response = await createBooking(bookingInfo);
       toast.success("New Booking Added Successfully");
       console.log("Response:", response);
-      // reset();
-      // navigate("/dashboard/adminFlightManagement");
+      reset();
+      navigate("/dashboard/userBooking");
     } catch (err) {
       console.error("Error details:", err.response?.data || err.message);
       toast.error("Booking Add Failed");
