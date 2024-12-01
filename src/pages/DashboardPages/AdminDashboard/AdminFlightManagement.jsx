@@ -52,7 +52,7 @@ const AdminFlightManagement = () => {
                 <th>Date</th>
                 <th>Time</th>
                 <th>Available Seats</th>
-                <th>Ticket Price(USD )</th>
+                <th>Ticket Price(USD)</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>

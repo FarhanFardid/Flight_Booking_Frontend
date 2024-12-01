@@ -49,7 +49,7 @@ const FlightDetails = () => {
                   <th>Destination</th>
                   <th>Date</th>
                   <th>Departure Time (24h)</th>
-                  <th>Ticket Price</th>
+                  <th>Ticket Price (USD)</th>
                   <th>Available Seats</th>
                   <th>Book Now</th>
                 </tr>
@@ -62,7 +62,7 @@ const FlightDetails = () => {
                   <td>{destination}</td>
                   <td>{formatDate(date)}</td>
                   <td>{time}</td>
-                  <td>{price}</td>
+                  <td>{price} $</td>
                   <td>{availableSeats}</td>
                   <td>
                     <Link to={`/flightBooking/${_id} `}>

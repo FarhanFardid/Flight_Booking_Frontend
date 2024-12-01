@@ -85,7 +85,7 @@ const AdminBookingManagementList = ({ booking, index, triggerRefetch }) => {
       <td>{flightId}</td>
       <td>{userId}</td>
       <td>{numberOfSeats}</td>
-      <td>{totalPrice}</td>
+      <td>{totalPrice} $</td>
       <td>{createdAt}</td>
       <td>{bookingStatus}</td>
       <td>

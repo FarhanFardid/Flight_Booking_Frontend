@@ -56,7 +56,7 @@ const AdminFlightManagementList = ({ flight, index, triggerRefetch }) => {
       <td>{formatDate(date)}</td>
       <td>{time}</td>
       <td>{availableSeats}</td>
-      <td>{price}</td>
+      <td>{price} $</td>
       <td>
         <Link to={`/dashboard/adminFlightUpdate/${_id}`}>
           <button

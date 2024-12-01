@@ -215,7 +215,7 @@ const AdminAddFlight = () => {
                     type="number"
                     name="seats"
                     placeholder="Enter Available Seats"
-                    min={0}
+                    min={1}
                     max={300}
                     {...register("seats", { required: true })}
                   />
