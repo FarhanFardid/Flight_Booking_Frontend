@@ -3,7 +3,7 @@ import Title from "../../components/Title";
 import backgroundImage from "../../assets/images/planeImg/plane2.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { loginUser } from "./auth";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,6 +17,8 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [showPassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -44,7 +46,7 @@ const Login = () => {
       toast.success("User Login Successful");
       // console.log(response.message);
       reset();
-      navigate("/");
+      navigate(from, { replace: true });
     } catch (error) {
       console.log(error.response.data.message);
       toast.error("User Login Failed");
